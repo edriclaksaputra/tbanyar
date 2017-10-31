@@ -1,0 +1,17 @@
+add barang di page supplier ga usah
+
+kolom barang di page supplier ga usah
+
+page input barang baru ada fitur supplier, drop down
+
+page input PO
+-no PO
+-tanggal
+-supplier
+-list barang(nama barang*dropdown*, harga beli, jumlah, total, grandtotal)
+-barang yang di display sesuai list di supplier
+
+rumus evaluasi SAW
+-harga, kecepatan pengiriman, jatuh tempo, ketersediaan barang
+-cost, cost, benefit, benefit
+-

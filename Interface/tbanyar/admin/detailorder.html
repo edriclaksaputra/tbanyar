@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Startmin - Bootstrap Admin Theme</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="../css/metisMenu.min.css" rel="stylesheet">
+
+        <!-- DataTables CSS -->
+        <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+        <!-- DataTables Responsive CSS -->
+        <link href="../css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="../css/startmin.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="color: white">Toko Besi Anyar</a>
+                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="penjualan.html"><i class="fa fa-dollar fa-fw"></i> Penjualan</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-users fa-fw"></i> Supplier<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="listsupplier.html"> List Supplier</a>
+                                    </li>
+                                    <li>
+                                        <a href="inputsupplier.html"> Input Supplier Baru</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-cube fa-fw"></i> Barang<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="listbarang.html"> List Barang</a>
+                                    </li>
+                                    <li>
+                                        <a href="inputbarang.html"> Input Barang Baru</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="validasipo.html"><i class="fa  fa-file-text-o fa-fw"></i> Validasi PO</a>
+                            </li>
+                            <li>
+                                <a href="evaluasisupplier.html"><i class="fa fa-edit fa-fw"></i> Evaluasi Supplier</a>
+                            </li>
+                            <li>
+                                <a href="inputpo.html"><i class="fa fa-pencil-square fa-fw"></i> Input PO</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.navbar-static-side -->
+            </nav>
+
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Pembelian</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Input Detail Order
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="dataTable_wrapper">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label>No. PO &nbsp &nbsp   &nbsp       &nbsp   &nbsp</label>
+                                                <input type="text" name="kodesupplier">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label>Hari/Tanggal</label>
+                                                <input type="text" name="kodesupplier">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label>Supplier &nbsp&nbsp  &nbsp   &nbsp</label>
+                                                <input type="text" name="kodesupplier" value="Semen Tiga Roda" disabled>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <div class="alert alert-warning">
+                                        <strong>List Barang Semen Tiga Roda</strong>
+                                        </div>
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-lg-1">No.</th>
+                                                    <th class="col-lg-3">Nama Barang</th>
+                                                    <th class="col-lg-3">Harga Barang Satuan</th>
+                                                    <th class="col-lg-2">Jumlah</th>
+                                                    <th class="col-lg-2">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="odd gradeX">
+                                                    <td>1</td>
+                                                    <td><label id="nama">Kayu Balok Tiga Roda</label></td>
+                                                    <td><label id="harga">125000</label></td>
+                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
+                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama').innerHTML, document.getElementById('harga').innerHTML, document.getElementById('banyak').value)">Add</button></td>
+                                                </tr>
+                                                <tr class="even gradeC">
+                                                    <td>2</td>
+                                                    <td>Plin Tegel Warna Tiga Roda</td>
+                                                    <td><label id="harga">90000</label></td>
+                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
+                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
+                                                </tr>
+                                                <tr class="odd gradeA">
+                                                    <td>3</td>
+                                                    <td>Marmer Alam Lampung Ukuran Besar Tiga Roda</td>
+                                                    <td><label id="harga">150000</label></td>
+                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
+                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </form>
+                                    <hr>
+                                    <form role="role">
+                                        <div class="alert alert-info">
+                                        <strong>List Barang Dibeli</strong>
+                                        </div>
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-lg-1">No.</th>
+                                                    <th class="col-lg-3">Nama Barang</th>
+                                                    <th class="col-lg-3">Harga Barang</th>
+                                                    <th class="col-lg-2">Jumlah</th>
+                                                    <th class="col-lg-2">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tablebarangbeli">
+                                                <!-- Diisi lewat JavaScript -->
+                                            </tbody>
+                                        </table>
+                                        <div class="row text-right">
+                                            <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
+                                        </div>
+                                        <button type="button" class="btn btn-success fa fa-check"> Order</button>
+                                    </form>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="../js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="../js/metisMenu.min.js"></script>
+
+        <!-- DataTables JavaScript -->
+        <script src="../js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="../js/startmin.js"></script>
+
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
+        <script>
+            var counter = 0;
+            var total = 0;
+            function addBarangBeli(namaBarang,harga,banyak){
+                var table = document.getElementById('tablebarangbeli');
+                var row = table.insertRow(counter);
+
+                var cell0 = row.insertCell(0);
+                var cell1 = row.insertCell(1);
+                var cell2 = row.insertCell(2);
+                var cell3 = row.insertCell(3);
+                var cell4 = row.insertCell(4);
+
+                cell0.innerHTML = counter+1;
+                cell1.innerHTML = namaBarang;
+                cell2.innerHTML = harga;
+                cell3.innerHTML = '<label id="banyakBarangDibeli">'+banyak+'</label>'
+                cell4.innerHTML = harga*banyak;
+
+                total = total+(harga*banyak);
+                var totalbelanja = document.getElementById('totalbelanja');
+                totalbelanja.innerHTML = total;
+                console.log(total);
+
+                counter++;
+            }
+        </script>
+        <script>
+            function removeBarangBeli(counter){
+                console.log(counter);
+                // var table = document.getElementById('tablebarangbeli');
+                // table.deleteRow(counter);
+            }
+        </script>
+    </body>
+</html>
