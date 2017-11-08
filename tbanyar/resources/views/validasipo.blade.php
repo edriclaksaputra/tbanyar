@@ -18,8 +18,9 @@
                                         <thead>
                                             <tr>
                                                 <th class="col-lg-1">No.</th>
-                                                <th class="col-lg-3">Tanggal PO</th>
-                                                <th class="col-lg-3">Nomor PO</th>
+                                                <th class="col-lg-2">Tanggal PO</th>
+                                                <th class="col-lg-2">Nomor PO</th>
+                                                <th class="col-lg-3">Judul Pesanan</th>
                                                 <th class="col-lg-2">Nama Supplier</th>
                                                 <th class="col-lg-2">Validasi</th>
                                                 <th class="col-lg-2">Status</th>
@@ -30,6 +31,7 @@
                                                 <td>1</td>
                                                 <td>10 Agustus 2017</td>
                                                 <td>1000001</td>
+                                                <td>Keterangan pesanan dari semen tiga roda</td>
                                                 <td class="center">Semen Tiga Roda</td>
                                                 <td class="center"><button type="button" class="btn btn-warning disabled">Validasi</button></td>
                                                 <td class="center"><button type="button" class="btn btn-default btn-circle disabled"><i class="fa fa-check"></i></button></td>
@@ -38,6 +40,7 @@
                                                 <td>2</td>
                                                 <td>10 Agustus 2017</td>
                                                 <td>1000002</td>
+                                                <td>Keterangan pesanan dari gardu cahaya</td>
                                                 <td>Gardu Cahaya</td>
                                                 <td class="center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Validasi</button></td>
                                                 <td class="center">Belum</td>
@@ -46,6 +49,7 @@
                                                 <td>3</td>
                                                 <td>10 Agustus 2017</td>
                                                 <td>1000003</td>
+                                                <td>Keterangan pesanan dari angkasa putra</td>
                                                 <td>Angkasa Putra</td>
                                                 <td class="center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Validasi</button></td>
                                                 <td class="center">Belum</td>

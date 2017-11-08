@@ -20,6 +20,7 @@ class Order extends Migration
             $table->integer('total');
             $table->boolean('status');
             $table->date('tanggaldatang');
+            $table->string('keterangan');
             $table->timestamps();
 
             $table->foreign('id_supplier')->references('id')->on('Suppliers')->onDelete('cascade');

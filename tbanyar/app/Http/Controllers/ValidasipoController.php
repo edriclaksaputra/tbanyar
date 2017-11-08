@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
 class validasipoController extends Controller
 {
@@ -13,7 +14,9 @@ class validasipoController extends Controller
      */
     public function index()
     {
-        return view('validasipo');
+        $orders = Order::get();
+
+        return view('validasipo', compact('orders'));
     }
 
     /**

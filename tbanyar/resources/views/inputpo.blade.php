@@ -31,7 +31,7 @@
                                                 <td>1</td>
                                                 <td>Semen Tiga Roda</td>
                                                 <td>Cipamokolan, Rancasari, Bandung City, West Java 40292</td>
-                                                <td class="center"><a href="detailorder.html"><button type="button" class="btn btn-success">Order</button></a></td>
+                                                <td class="center"><a href="detailorder"><button type="button" class="btn btn-success">Order</button></a></td>
                                             </tr>
                                             <tr class="even gradeC">
                                                 <td>2</td>

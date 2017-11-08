@@ -16,50 +16,47 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body col">
                                 <div class="row col-lg-12">
-                                    <form role="form">
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>Kode Barang &nbsp&nbsp</label>
-                                                <input type="text" name="kodesupplier">
-                                            </div>
-                                        </div>
+                                    <form role="form" novalidate="novalidate" method="post" enctype="multipart/form-data" action="inputbarang/addbarangbaru">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Nama Barang &nbsp</label>
-                                                <input type="text" name="namasupplier">
+                                                <input type="text" name="namabarang">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Supplier &nbsp   &nbsp   &nbsp   &nbsp   &nbsp</label>
-                                                <select name="aspek1">
-                                                    <option value="harga" selected>Semen Tiga Roda</option>
-                                                    <option value="kecepatan">Jaya Aman Sentosa</option>
+                                                <select name="supplier">
+                                                    @foreach($suppliers as $supplier)
+                                                    <option value={{$supplier->id}}>{{$supplier->nama}}</option>
+                                                    @endforeach
+                                                    <!-- <option value="kecepatan">Jaya Aman Sentosa</option>
                                                     <option value="tempo">Kopo Jaya</option>
-                                                    <option value="ketersediaan">Gardu Cahaya</option>
+                                                    <option value="ketersediaan">Gardu Cahaya</option> -->
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Harga Beli &nbsp &nbsp   &nbsp&nbsp</label>
-                                                <input type="text" name="namasupplier">
+                                                <input type="text" name="hargabeli">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Harga Jual &nbsp &nbsp   &nbsp</label>
-                                                <input type="text" name="namasupplier">
+                                                <input type="text" name="hargajual">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Stok &nbsp &nbsp &nbsp   &nbsp&nbsp &nbsp &nbsp   &nbsp&nbsp&nbsp</label>
-                                                <input type="text" name="namasupplier">
+                                                <input type="text" name="stockbarang">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-success fa fa-check"> Save</button>
+                                            <button type="submit" class="btn btn-success fa fa-check"> Save</button>
                                         </div>
                                     </form>
                                 </div>

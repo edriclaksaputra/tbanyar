@@ -22,22 +22,20 @@
                                             <tr>
                                                 <th class="col-lg-1">No.</th>
                                                 <th class="col-lg-3">Nama Barang</th>
-                                                <th class="col-lg-3">Harga Beli</th>
                                                 <th class="col-lg-2">Harga Jual</th>
                                                 <th class="col-lg-1">Stock</th>
-                                                <th class="col-lg-3">Supplier</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($items as $item)
                                             <tr class="odd gradeX">
-                                                <td>1</td>
-                                                <td>Pasir Urug</td>
-                                                <td>200000</td>
-                                                <td class="center">210000</td>
-                                                <td class="center">20</td>
-                                                <td class="center">Semen Tiga Roda</td>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{$item->nama}}</td>
+                                                <td>{{$item->hargajual}}</td>
+                                                <td class="center">{{$item->stock}}</td>
                                             </tr>
-                                            <tr class="even gradeC">
+                                            @endforeach
+                                            <!-- <tr class="even gradeC">
                                                 <td>2</td>
                                                 <td>Abu Batu</td>
                                                 <td>150000</td>
@@ -52,7 +50,7 @@
                                                 <td class="center">175000</td>
                                                 <td class="center">48</td>
                                                 <td class="center">Angkasa Putra</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>

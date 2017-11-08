@@ -27,13 +27,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($suppliers as $supplier)
                                             <tr class="odd gradeX">
-                                                <td>1</td>
-                                                <td>Semen Tiga Roda</td>
-                                                <td>Cipamokolan, Rancasari, Bandung City, West Java 40292</td>
-                                                <td class="center">44534563456242</td>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{$supplier->nama}}</td>
+                                                <td>{{$supplier->alamat}}</td>
+                                                <td class="center">{{$supplier->telp}}</td>
                                             </tr>
-                                            <tr class="even gradeC">
+                                            @endforeach
+                                            <!-- <tr class="even gradeC">
                                                 <td>2</td>
                                                 <td>Jaya Aman Sentosa</td>
                                                 <td>Jalan Raya Cibeureum No.50, Campaka, Andir, Kota Bandung, Jawa Barat 40184</td>
@@ -98,7 +100,7 @@
                                                 <td>Camino 1.5</td>
                                                 <td>Jl. Aria Bar. No.7, Cipamokolan, Rancasari, Kota Bandung, Jawa Barat 40292</td>
                                                 <td class="center">71234124567645</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>

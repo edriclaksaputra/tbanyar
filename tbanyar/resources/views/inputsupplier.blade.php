@@ -17,13 +17,8 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body col">
                                 <div class="row col-lg-12">
-                                    <form role="form">
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>Kode Supplier &nbsp&nbsp</label>
-                                                <input type="text" name="kodesupplier">
-                                            </div>
-                                        </div>
+                                    <form role="form" novalidate="novalidate" method="post" enctype="multipart/form-data" action="inputsupplier/addnewsupplier">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Nama Supplier &nbsp</label>
@@ -39,30 +34,14 @@
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Nomor Telepon &nbsp</label>
-                                                <input type="text" name="namasupplier">
+                                                <input type="text" name="telpsupplier">
                                             </div>
                                         </div>
-                                        <!-- <div class="row">
+                                        <div class="row">
                                             <div class="form-group col-lg-4">
-                                                <label>Nama Barang  &nbsp&nbsp&nbsp&nbsp</label>
-                                                <input type="text" name="namabarang" id="addnama">
-                                                <button type="button" class="btn btn-info fa fa-plus" onclick="addNamaBarang(document.getElementById('addnama').value)"> Add</button>
-                                                <br><br>
-                                                <div class="form-group">
-                                                    <div class="panel panel-success">
-                                                        <div class="panel-heading">
-                                                            List Barang
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <input class="col-sm-12" type="text" id="namanamabarang" name="listbarang">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <button type="submit" class="btn btn-success">Save</button>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <button type="button" class="btn btn-success fa fa-check"> Save</button>
-                                        </div> -->
                                     </form>
                                 </div>
                             </div>
@@ -88,12 +67,6 @@
                         responsive: true
                 });
             });
-        </script>
-        <script>
-            function addNamaBarang(namaBarang){
-                document.getElementById('namanamabarang').value += namaBarang + '/';
-                document.getElementById('addnama').value = "";
-            }
         </script>
     </body>
 </html>

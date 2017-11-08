@@ -35,6 +35,13 @@
                                                 <input type="text" name="kodesupplier" value="Semen Tiga Roda" disabled>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label>Keterangan Pesanan</label>
+                                                <br>
+                                                <textarea name="keterangan" rows="3" cols="50"></textarea>
+                                            </div>
+                                        </div>
 
                                         <hr>
                                         <div class="alert alert-warning">

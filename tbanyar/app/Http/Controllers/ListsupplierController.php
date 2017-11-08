@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Suppliers;
 
 class listsupplierController extends Controller
 {
@@ -13,7 +14,9 @@ class listsupplierController extends Controller
      */
     public function index()
     {
-        return view('listsupplier');
+        $suppliers = suppliers::get();
+        // dd($suppliers);
+        return view('listsupplier', compact('suppliers'));
     }
 
     /**

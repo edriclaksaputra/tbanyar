@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Suppliers;
+use Illuminate\Support\Facades\Input;
 
 class inputsupplierController extends Controller
 {
@@ -23,7 +25,15 @@ class inputsupplierController extends Controller
      */
     public function create()
     {
-        //
+        $supplier = new Suppliers;
+        $supplier->nama = Input::get('namasupplier');
+        $supplier->alamat = Input::get('alamatsupplier');
+        $supplier->telp = Input::get('telpsupplier');
+        $supplier->jatuhtempo = null;
+        $supplier->lamapengiriman = null;
+        $supplier->save();
+
+        return redirect('listsupplier');
     }
 
     /**

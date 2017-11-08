@@ -18,8 +18,8 @@ class Suppliers extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('telp');
-            $table->integer('jatuhtempo');
-            $table->integer('lamapengiriman');
+            $table->integer('jatuhtempo')->nullable();;
+            $table->integer('lamapengiriman')->nullable();;
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Items;
 
 class listbarangController extends Controller
 {
@@ -13,7 +14,8 @@ class listbarangController extends Controller
      */
     public function index()
     {
-        return view('listbarang');
+        $items = items::get();
+        return view('listbarang', compact('items'));
     }
 
     /**
