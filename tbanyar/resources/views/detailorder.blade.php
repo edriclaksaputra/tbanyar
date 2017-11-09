@@ -17,12 +17,12 @@
                             <div class="panel-body">
                                 <div class="dataTable_wrapper">
                                     <form role="form">
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>No. PO &nbsp &nbsp   &nbsp       &nbsp   &nbsp</label>
                                                 <input type="text" name="kodesupplier">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Hari/Tanggal</label>
@@ -32,7 +32,7 @@
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Supplier &nbsp&nbsp  &nbsp   &nbsp</label>
-                                                <input type="text" name="kodesupplier" value="Semen Tiga Roda" disabled>
+                                                <input type="text" name="kodesupplier" value={{$supplier_detail->nama}} disabled>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -58,31 +58,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($listItem_supplier as $listItem)
                                                 <tr class="odd gradeX">
-                                                    <td>1</td>
-                                                    <td><label id="nama">Kayu Balok Tiga Roda</label></td>
-                                                    <td><label id="harga">125000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama').innerHTML, document.getElementById('harga').innerHTML, document.getElementById('banyak').value)">Add</button></td>
+                                                    <td>{{$loop->iteration}}</td>
+                                                    <input type="hidden" id="detailbarang_id{{$loop->iteration}}" name="detailbarang_id" value={{$listItem->id}}>
+                                                    <td><label id="nama{{$loop->iteration}}">{{$listItem->items->nama}}</label></td>
+                                                    <td><label id="harga{{$loop->iteration}}">{{$listItem->hargabeli}}</label></td>
+                                                    <td class="center"><input type="number" name="banyak" id="banyak{{$loop->iteration}}" value="0"></td>
+                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama{{$loop->iteration}}').innerHTML, document.getElementById('harga{{$loop->iteration}}').innerHTML, document.getElementById('banyak{{$loop->iteration}}').value, document.getElementById('detailbarang_id{{$loop->iteration}}').value)">Add</button></td>
                                                 </tr>
-                                                <tr class="even gradeC">
-                                                    <td>2</td>
-                                                    <td>Plin Tegel Warna Tiga Roda</td>
-                                                    <td><label id="harga">90000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
-                                                <tr class="odd gradeA">
-                                                    <td>3</td>
-                                                    <td>Marmer Alam Lampung Ukuran Besar Tiga Roda</td>
-                                                    <td><label id="harga">150000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </form>
                                     <hr>
+                                    //sudah bisa di cek value nya
                                     <form role="role">
                                         <div class="alert alert-info">
                                         <strong>List Barang Dibeli</strong>
@@ -135,7 +125,7 @@
         <script>
             var counter = 0;
             var total = 0;
-            function addBarangBeli(namaBarang,harga,banyak){
+            function addBarangBeli(namaBarang,harga,banyak,detailbarang_id){
                 var table = document.getElementById('tablebarangbeli');
                 var row = table.insertRow(counter);
 
@@ -146,24 +136,16 @@
                 var cell4 = row.insertCell(4);
 
                 cell0.innerHTML = counter+1;
-                cell1.innerHTML = namaBarang;
-                cell2.innerHTML = harga;
-                cell3.innerHTML = '<label id="banyakBarangDibeli">'+banyak+'</label>'
-                cell4.innerHTML = harga*banyak;
+                cell1.innerHTML = '<label id="namaBarang'+counter+'">'+namaBarang+'</label><input type="hidden" id="detailbarang_id'+counter+'" value="'+detailbarang_id+'"><input type="hidden" id="counter" value="'+counter+'">';
+                cell2.innerHTML = '<label id="hargaBarang'+counter+'">'+harga+'</label>';
+                cell3.innerHTML = '<label id="banyakBarang'+counter+'">'+banyak+'</label>';
+                cell4.innerHTML = '<label id="totalbelanjaan'+counter+'">'+harga*banyak+'</label>';
 
                 total = total+(harga*banyak);
                 var totalbelanja = document.getElementById('totalbelanja');
                 totalbelanja.innerHTML = total;
-                console.log(total);
 
                 counter++;
-            }
-        </script>
-        <script>
-            function removeBarangBeli(counter){
-                console.log(counter);
-                // var table = document.getElementById('tablebarangbeli');
-                // table.deleteRow(counter);
             }
         </script>
     </body>

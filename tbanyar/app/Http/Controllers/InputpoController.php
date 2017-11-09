@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Suppliers;
 
 class inputpoController extends Controller
 {
@@ -13,7 +14,8 @@ class inputpoController extends Controller
      */
     public function index()
     {
-        return view('inputpo');
+        $suppliers = Suppliers::get();
+        return view('inputpo', compact('suppliers'));
     }
 
     /**

@@ -15,14 +15,14 @@ class Detailorder extends Migration
     {
         Schema::create('Detailorder', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_order')->unsigned();
-            $table->integer('id_detailitem')->unsigned();
+            $table->integer('order_id')->unsigned();
+            $table->integer('detailitem_id')->unsigned();
             $table->integer('banyak');
             $table->integer('subtotal');
             $table->timestamps();
 
-            $table->foreign('id_order')->references('id')->on('Order')->onDelete('cascade');
-            $table->foreign('id_detailitem')->references('id')->on('Detailitem')->onDelete('cascade');
+            $table->foreign('order_id')->references('id')->on('Order')->onDelete('cascade');
+            $table->foreign('detailitem_id')->references('id')->on('Detailitem')->onDelete('cascade');
         });
     }
 

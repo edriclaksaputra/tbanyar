@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Suppliers;
+use App\Detailitem;
 
 class detailorderController extends Controller
 {
@@ -11,9 +13,13 @@ class detailorderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($idsupplier)
     {
-        return view('detailorder');
+        $id_supplier = $idsupplier;
+
+        $supplier_detail = Suppliers::find($id_supplier);
+        $listItem_supplier = Detailitem::where('supplier_id',$id_supplier)->get();
+        return view('detailorder', compact('supplier_detail','listItem_supplier'));
     }
 
     /**

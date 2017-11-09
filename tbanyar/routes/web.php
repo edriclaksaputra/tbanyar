@@ -18,7 +18,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('detailorder', 'DetailorderController@index')->name('detailorder');
+Route::get('detailorder/{idsupplier}', 'DetailorderController@index')->name('detailorder');
 Route::get('evaluasisupplier', 'EvaluasisupplierController@index')->name('evaluasisupplier');
 Route::get('inputbarang', 'InputbarangController@index')->name('inputbarang');
 Route::post('inputbarang/addbarangbaru', 'InputbarangController@create')->name('addbarangbaru');
