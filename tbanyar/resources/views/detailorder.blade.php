@@ -16,23 +16,12 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="dataTable_wrapper">
-                                    <form role="form">
-                                        <!-- <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>No. PO &nbsp &nbsp   &nbsp       &nbsp   &nbsp</label>
-                                                <input type="text" name="kodesupplier">
-                                            </div>
-                                        </div> -->
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>Hari/Tanggal</label>
-                                                <input type="text" name="kodesupplier">
-                                            </div>
-                                        </div>
+                                    <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="/inputorder/{{$supplier_detail->id}}">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Supplier &nbsp&nbsp  &nbsp   &nbsp</label>
-                                                <input type="text" name="kodesupplier" value={{$supplier_detail->nama}} disabled>
+                                                <input type="text" name="kodesupplier" value="{{$supplier_detail->nama}}" disabled>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -42,10 +31,32 @@
                                                 <textarea name="keterangan" rows="3" cols="50"></textarea>
                                             </div>
                                         </div>
-
-                                        <hr>
+                                        <div class="alert alert-info">
+                                        <strong>List Barang Dibeli</strong>
+                                        </div>
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-lg-1">No.</th>
+                                                    <th class="col-lg-3">Nama Barang</th>
+                                                    <th class="col-lg-3">Harga Barang</th>
+                                                    <th class="col-lg-2">Jumlah</th>
+                                                    <th class="col-lg-2">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="form-group" id="tablebarangbeli">
+                                                <!-- Diisi lewat JavaScript -->
+                                            </tbody>
+                                        </table>
+                                        <div class="row text-right">
+                                            <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
+                                            <input type="hidden" name="belanjatotal" id="belanjatotal">
+                                        </div>
+                                        <button type="submit" class="btn btn-success fa fa-check"> Order</button>
+                                    </form>
+                                    <br><br>
                                         <div class="alert alert-warning">
-                                        <strong>List Barang Semen Tiga Roda</strong>
+                                        <strong>List Barang {{$supplier_detail->nama}}</strong>
                                         </div>
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
@@ -70,32 +81,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                    </form>
-                                    <hr>
-                                    //sudah bisa di cek value nya
-                                    <form role="role">
-                                        <div class="alert alert-info">
-                                        <strong>List Barang Dibeli</strong>
-                                        </div>
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th class="col-lg-1">No.</th>
-                                                    <th class="col-lg-3">Nama Barang</th>
-                                                    <th class="col-lg-3">Harga Barang</th>
-                                                    <th class="col-lg-2">Jumlah</th>
-                                                    <th class="col-lg-2">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tablebarangbeli">
-                                                <!-- Diisi lewat JavaScript -->
-                                            </tbody>
-                                        </table>
-                                        <div class="row text-right">
-                                            <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
-                                        </div>
-                                        <button type="button" class="btn btn-success fa fa-check"> Order</button>
-                                    </form>
+                                        <hr>
                                 </div>
                                 <!-- /.table-responsive -->
                             </div>
@@ -136,14 +122,17 @@
                 var cell4 = row.insertCell(4);
 
                 cell0.innerHTML = counter+1;
-                cell1.innerHTML = '<label id="namaBarang'+counter+'">'+namaBarang+'</label><input type="hidden" id="detailbarang_id'+counter+'" value="'+detailbarang_id+'"><input type="hidden" id="counter" value="'+counter+'">';
-                cell2.innerHTML = '<label id="hargaBarang'+counter+'">'+harga+'</label>';
-                cell3.innerHTML = '<label id="banyakBarang'+counter+'">'+banyak+'</label>';
-                cell4.innerHTML = '<label id="totalbelanjaan'+counter+'">'+harga*banyak+'</label>';
+                cell1.innerHTML = '<label>'+namaBarang+'</label><input type="hidden" name="detailbarang_id'+counter+'" value="'+detailbarang_id+'"><input type="hidden" name="counter" value="'+counter+'">';
+                cell2.innerHTML = '<label>'+harga+'</label>';
+                cell3.innerHTML = '<label>'+banyak+'</label><input type="hidden" name="banyakBarang'+counter+'" value="'+banyak+'">';
+                cell4.innerHTML = '<label>'+harga*banyak+'</label><input type="hidden" name="totalbelanjaan'+counter+'" value="'+harga*banyak+'">';
 
                 total = total+(harga*banyak);
                 var totalbelanja = document.getElementById('totalbelanja');
                 totalbelanja.innerHTML = total;
+
+                var belanjatotal = document.getElementById('belanjatotal');
+                belanjatotal.value = total;
 
                 counter++;
             }

@@ -15,6 +15,6 @@ class Detailitem extends Model
 	}
 
 	public function Items(){
-		return $this->belongsTo('App\Items','id');
+		return $this->belongsTo('App\Items');
 	}
 }

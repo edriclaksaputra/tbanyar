@@ -15,13 +15,13 @@ class Detailitem extends Migration
     {
         Schema::create('Detailitem', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('supplier_id')->unsigned();
-            $table->integer('item_id')->unsigned();
+            $table->integer('suppliers_id')->unsigned();
+            $table->integer('items_id')->unsigned();
             $table->integer('hargabeli');
             $table->timestamps();
 
-            $table->foreign('supplier_id')->references('id')->on('Suppliers')->onDelete('cascade');
-            $table->foreign('item_id')->references('id')->on('Items')->onDelete('cascade');
+            $table->foreign('suppliers_id')->references('id')->on('Suppliers')->onDelete('cascade');
+            $table->foreign('items_id')->references('id')->on('Items')->onDelete('cascade');
         });
     }
 

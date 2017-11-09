@@ -19,8 +19,8 @@ class Order extends Migration
             $table->date('tanggal');
             $table->integer('total');
             $table->boolean('status');
-            $table->date('tanggaldatang');
-            $table->string('keterangan');
+            $table->date('tanggaldatang')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
 
             $table->foreign('supplier_id')->references('id')->on('Suppliers')->onDelete('cascade');

@@ -16,13 +16,13 @@ class Detailfaktur extends Migration
         Schema::create('Detailfaktur', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('faktur_id')->unsigned();
-            $table->integer('item_id')->unsigned();
+            $table->integer('items_id')->unsigned();
             $table->integer('subtotal');
             $table->integer('banyak');
             $table->timestamps();
 
             $table->foreign('faktur_id')->references('id')->on('Faktur')->onDelete('cascade');
-            $table->foreign('item_id')->references('id')->on('Items')->onDelete('cascade');
+            $table->foreign('items_id')->references('id')->on('Items')->onDelete('cascade');
         });
     }
 
