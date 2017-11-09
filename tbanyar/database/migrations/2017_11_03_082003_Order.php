@@ -15,7 +15,7 @@ class Order extends Migration
     {
         Schema::create('Order', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('supplier_id')->unsigned();
+            $table->integer('suppliers_id')->unsigned();
             $table->date('tanggal');
             $table->integer('total');
             $table->boolean('status');
@@ -23,7 +23,7 @@ class Order extends Migration
             $table->string('keterangan')->nullable();
             $table->timestamps();
 
-            $table->foreign('supplier_id')->references('id')->on('Suppliers')->onDelete('cascade');
+            $table->foreign('suppliers_id')->references('id')->on('Suppliers')->onDelete('cascade');
         });
     }
 

@@ -16,7 +16,7 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="dataTable_wrapper">
-                                    <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="/inputorder/{{$supplier_detail->id}}">
+                                    <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="inputorder">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -51,6 +51,7 @@
                                         <div class="row text-right">
                                             <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
                                             <input type="hidden" name="belanjatotal" id="belanjatotal">
+                                            <input type="hidden" name="supplier_id" value="{{$supplier_detail->id}}">
                                         </div>
                                         <button type="submit" class="btn btn-success fa fa-check"> Order</button>
                                     </form>

@@ -28,79 +28,18 @@
                                         </thead>
                                         <tbody>
                                             @foreach($suppliers as $supplier)
-                                            <tr class="odd gradeX">
-                                                <td>{{$loop->iteration}}</td>
-                                                <td>{{$supplier->nama}}</td>
-                                                <td>{{$supplier->alamat}}</td>
-                                                <td class="center"><a href="detailorder/{{$supplier->id}}"><button type="button" class="btn btn-success">Order</button></a></td>
-                                            </tr>
+                                                <tr class="odd gradeX">
+                                                    <form role="role" novalidate="novalidate" method="get" enctype="multipart/form-data" action="detailorder">
+                                                        <td>{{$loop->iteration}}</td>
+                                                        <td>{{$supplier->nama}}</td>
+                                                        <td>{{$supplier->alamat}}</td>
+                                                        <td class="center">
+                                                            <button type="submit" class="btn btn-success">Order</button>
+                                                        </td>
+                                                        <input type="hidden" name="supplier_id" value="{{$supplier->id}}">
+                                                    </form>
+                                                </tr>
                                             @endforeach
-                                            <!-- <tr class="even gradeC">
-                                                <td>2</td>
-                                                <td>Jaya Aman Sentosa</td>
-                                                <td>Jalan Raya Cibeureum No.50, Campaka, Andir, Kota Bandung, Jawa Barat 40184</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>3</td>
-                                                <td>Kopo Jaya</td>
-                                                <td>Jl. LL. RE. Martadinata No.74-80, Cihapit, Bandung Wetan, Kota </td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>4</td>
-                                                <td>First Media Tech. Office (HUB)</td>
-                                                <td>Jl. Jendral Gatot Subroto No.236, Binong, Batununggal, Kota Bandung, Jawa Barat 40275</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>5</td>
-                                                <td>Gardu Cahaya</td>
-                                                <td>Jl. BKR, Cijagra, Lengkong, Kota Bandung, Jawa Barat 40253</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>6</td>
-                                                <td>Sentosa Citra</td>
-                                                <td>Jl. Soekarno Hatta No.216, Babakan Ciparay, Kota Bandung, Jawa Barat 40223</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>7</td>
-                                                <td>Angkasa Putra</td>
-                                                <td>Jl. Raya Tim. Tagog No.100, Karangmekar, Cimahi Tengah, Kota Cimahi, Jawa Barat 40523</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>8</td>
-                                                <td>Sriwijaya Agung</td>
-                                                <td>Jl. Cilengkrang II, Palasari, Cibiru, Kota Bandung, Jawa Barat 40615</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>9</td>
-                                                <td>Jaya Cell</td>
-                                                <td>Jl. Aria Bar. No.7, Cipamokolan, Rancasari, Kota Bandung, Jawa Barat 40292</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>10</td>
-                                                <td>Anggarabrata</td>
-                                                <td>Jl. Soekarno Hatta No.216, Babakan Ciparay, Kota Bandung, Jawa Barat 40223</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>11</td>
-                                                <td>Camino 1.0</td>
-                                                <td>Jl. Raya Tim. Tagog No.100, Karangmekar, Cimahi Tengah, Kota Cimahi, Jawa Barat 40523</td>
-                                                <td class="center"><button type="button" class="btn btn-success">Order</button></td>
-                                            </tr>
-                                            <tr class="gradeA">
-                                                <td>12</td>
-                                                <td>Camino 1.5</td>
-                                                <td>Jl. Aria Bar. No.7, Cipamokolan, Rancasari, Kota Bandung, Jawa Barat 40292</td>
-                                                <td class="center"><a href=""><button type="button" class="btn btn-success">Order</button></a></td>
-                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>

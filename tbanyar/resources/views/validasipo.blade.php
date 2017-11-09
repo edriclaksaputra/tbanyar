@@ -27,16 +27,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($orders as $order)
                                             <tr class="odd gradeX">
-                                                <td>1</td>
-                                                <td>10 Agustus 2017</td>
-                                                <td>1000001</td>
-                                                <td>Keterangan pesanan dari semen tiga roda</td>
-                                                <td class="center">Semen Tiga Roda</td>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{$order->tanggal}}</td>
+                                                <td>{{$order->id}}</td>
+                                                <td>{{$order->keterangan}}</td>
+                                                <td class="center">{{$order->suppliers->nama}}</td>
+                                                @if($order->status == 0)
+                                                <td class="center"><button onclick="validasi('{{$order->id}}','{{$order->suppliers->nama}}')" type="submit" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Validasi</button></td>
+                                                <td class="center"><button style="color: red" type="button" class="btn btn-default disabled">Not Yet</button></td>
+                                                @elseif($order->status == 1)
                                                 <td class="center"><button type="button" class="btn btn-warning disabled">Validasi</button></td>
                                                 <td class="center"><button type="button" class="btn btn-default btn-circle disabled"><i class="fa fa-check"></i></button></td>
+                                                @endif
+                                                <!-- <td class="center"><button type="button" class="btn btn-default btn-circle disabled"><i class="fa fa-check"></i></button></td> -->
                                             </tr>
-                                            <tr class="even gradeC">
+                                            @endforeach
+                                            <!-- <tr class="even gradeC">
                                                 <td>2</td>
                                                 <td>10 Agustus 2017</td>
                                                 <td>1000002</td>
@@ -53,7 +61,7 @@
                                                 <td>Angkasa Putra</td>
                                                 <td class="center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Validasi</button></td>
                                                 <td class="center">Belum</td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                     <!-- Modal -->
@@ -65,12 +73,16 @@
                                                     <h4 class="modal-title" id="myModalLabel">Validasi PO</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    Apakah anda yakin untuk memvalidasi PO (nomor PO) berikut ?
+                                                    Apakah anda yakin untuk validasi PO nomor <strong><label id="nomorpo"></label></strong> atas nama Supplier <strong><label id="namasupplier"></label></strong> ?
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ya</button>
-                                                </div>
+                                                <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="validasipo/validateorder">
+                                                    {{ csrf_field() }}
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary">Ya</button>
+                                                    </div> 
+                                                    <input type="hidden" id="idOrderKirim" name="idOrderKirim" value="0">
+                                                </form>
                                             </div>
                                             <!-- /.modal-content -->
                                         </div>
@@ -102,6 +114,18 @@
                         responsive: true
                 });
             });
+        </script>
+        <script>
+            function validasi(nomorpo,namasupplier){
+                var modalnomorpo = document.getElementById('nomorpo');
+                modalnomorpo.innerHTML = nomorpo;
+
+                var modalnamasupplier = document.getElementById('namasupplier');
+                modalnamasupplier.innerHTML = namasupplier;
+
+                var idOrder = document.getElementById('idOrderKirim');
+                idOrder.value = nomorpo;
+            }
         </script>
 
     </body>

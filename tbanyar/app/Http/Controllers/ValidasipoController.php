@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
 
 class validasipoController extends Controller
 {
@@ -69,9 +71,15 @@ class validasipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+        $order_id = Input::get('idOrderKirim');
+        $order = Order::find($order_id);
+        $order->status = 1;
+        $order->tanggaldatang = Carbon::now();
+        $order->save();
+
+        return redirect('validasipo');
     }
 
     /**

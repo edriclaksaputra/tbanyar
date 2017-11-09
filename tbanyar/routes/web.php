@@ -18,8 +18,8 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('detailorder/{idsupplier}', 'DetailorderController@index')->name('detailorder');
-Route::post('inputorder/{idsupplier}', 'DetailorderController@create')->name('inputorder');
+Route::get('detailorder', 'DetailorderController@index')->name('detailorder');
+Route::post('inputorder', 'DetailorderController@create')->name('inputorder');
 Route::get('evaluasisupplier', 'EvaluasisupplierController@index')->name('evaluasisupplier');
 Route::get('inputbarang', 'InputbarangController@index')->name('inputbarang');
 Route::post('inputbarang/addbarangbaru', 'InputbarangController@create')->name('addbarangbaru');
@@ -30,3 +30,4 @@ Route::get('listbarang', 'ListbarangController@index')->name('listbarang');
 Route::get('listsupplier', 'ListsupplierController@index')->name('listsupplier');
 Route::get('penjualan', 'PenjualanController@index')->name('penjualan');
 Route::get('validasipo', 'ValidasipoController@index')->name('validasipo');
+Route::post('validasipo/validateorder', 'ValidasipoController@update')->name('validateorder');

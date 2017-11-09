@@ -17,9 +17,9 @@ class detailorderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($idsupplier)
+    public function index()
     {
-        $id_supplier = $idsupplier;
+        $id_supplier = Input::get('supplier_id');
 
         $supplier_detail = Suppliers::find($id_supplier);
         $listItem_supplier = Detailitem::where('suppliers_id',$id_supplier)->get();
@@ -31,17 +31,17 @@ class detailorderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($supplier_id)
+    public function create()
     {
         $counter = Input::get('counter');
         $tanggal = Carbon::now();
         $keterangan = Input::get('keterangan');
         $total = Input::get('belanjatotal');
-        $supplier_id = $supplier_id;
+        $supplier_id = Input::get('supplier_id');
 
         //Input Order baru
         $order = new Order;
-        $order->supplier_id = $supplier_id;
+        $order->suppliers_id = $supplier_id;
         $order->tanggal = $tanggal;
         $order->status = 0;
         $order->tanggaldatang = null;
