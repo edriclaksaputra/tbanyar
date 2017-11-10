@@ -44,24 +44,6 @@
                                                 <!-- <td class="center"><button type="button" class="btn btn-default btn-circle disabled"><i class="fa fa-check"></i></button></td> -->
                                             </tr>
                                             @endforeach
-                                            <!-- <tr class="even gradeC">
-                                                <td>2</td>
-                                                <td>10 Agustus 2017</td>
-                                                <td>1000002</td>
-                                                <td>Keterangan pesanan dari gardu cahaya</td>
-                                                <td>Gardu Cahaya</td>
-                                                <td class="center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Validasi</button></td>
-                                                <td class="center">Belum</td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>3</td>
-                                                <td>10 Agustus 2017</td>
-                                                <td>1000003</td>
-                                                <td>Keterangan pesanan dari angkasa putra</td>
-                                                <td>Angkasa Putra</td>
-                                                <td class="center"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Validasi</button></td>
-                                                <td class="center">Belum</td>
-                                            </tr> -->
                                         </tbody>
                                     </table>
                                     <!-- Modal -->
@@ -75,7 +57,7 @@
                                                 <div class="modal-body">
                                                     Apakah anda yakin untuk validasi PO nomor <strong><label id="nomorpo"></label></strong> atas nama Supplier <strong><label id="namasupplier"></label></strong> ?
                                                 </div>
-                                                <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="validasipo/validateorder">
+                                                <form role="role" method="post" action="validasipo/validateorder">
                                                     {{ csrf_field() }}
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

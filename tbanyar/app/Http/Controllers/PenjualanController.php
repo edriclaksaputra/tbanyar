@@ -47,6 +47,11 @@ class penjualanController extends Controller
             $detailfaktur->banyak = Input::get('banyakBarang'.$i);
             $detailfaktur->subtotal = Input::get('totalbelanjaan'.$i);
             $detailfaktur->save();
+            
+            //Kurangi Stok di Toko
+            $item = Items::find($detailfaktur->items_id);
+            $item->stock = $item->stock - $detailfaktur->banyak;
+            $item->save();
         }
 
         return redirect('penjualan');

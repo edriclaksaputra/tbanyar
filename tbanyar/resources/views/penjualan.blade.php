@@ -17,7 +17,7 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="dataTable_wrapper">
-                                    <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="penjualan/addfaktur">
+                                    <form method="post" action="penjualan/addfaktur">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -40,7 +40,7 @@
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Keterangan / Request</label>
-                                                <textarea name="keterangan" rows="3" cols="50"></textarea>
+                                                <textarea class="form-group" name="keterangan" rows="3" cols="50"></textarea>
                                             </div>
                                         </div>
                                         <div class="alert alert-info">
@@ -60,7 +60,7 @@
                                                 <!-- Diisi lewat JavaScript -->
                                             </tbody>
                                         </table>
-                                        <div class="row text-right">
+                                        <div class="form-group row text-right">
                                             <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
                                             <input type="hidden" name="belanjatotal" id="belanjatotal">
                                         </div>

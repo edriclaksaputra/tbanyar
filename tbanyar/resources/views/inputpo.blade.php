@@ -29,7 +29,7 @@
                                         <tbody>
                                             @foreach($suppliers as $supplier)
                                                 <tr class="odd gradeX">
-                                                    <form role="role" novalidate="novalidate" method="get" enctype="multipart/form-data" action="detailorder">
+                                                    <form role="role" method="get" action="detailorder">
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$supplier->nama}}</td>
                                                         <td>{{$supplier->alamat}}</td>

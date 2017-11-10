@@ -28,24 +28,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(count($suppliers) == 1)
+                                            @if(count($listSupplier) == 1)
                                             <tr>
-                                                <td>1</td>
-                                                <td>{{$suppliers->nama}}</td>
-                                                <td>{{$suppliers->alamat}}</td>
-                                                <td>{{$suppliers->telp}}</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                             @else
-                                            @foreach($listSupplierSorted as $supplier)
+                                            @foreach($listSupplier as $supplier)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
-                                                <td>{{$supplier->nama}}</td>
-                                                <td>{{$supplier->alamat}}</td>
-                                                <td>{{$supplier->telp}}</td>
+                                                <td>{{$supplier->suppliers->nama}}</td>
+                                                <td>{{$supplier->suppliers->alamat}}</td>
+                                                <td>{{$supplier->suppliers->telp}}</td>
                                             </tr>
                                             @endforeach
                                             @endif
-                                            
                                         </tbody>
                                     </table>
                                 </div>

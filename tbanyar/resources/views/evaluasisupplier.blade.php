@@ -35,21 +35,21 @@
                                 </div>
                                 <!-- /.table-responsive -->
                                 <hr>
-                                <form role="form" novalidate="novalidate" method="post" enctype="multipart/form-data" action="rekomendsupplier">
+                                <form role="form" method="post" action="rekomendsupplier">
                                     {{ csrf_field() }}
                                     <div class="row">
                                         <div class="form-group col-lg-12">
-                                            <div class="alert alert-success">
+                                            <div class="form-group alert alert-success">
                                                 <label class="col-lg-2">Nama Barang</label>
                                                 <input type="text" name="namabarang" id="namaBarangDipilih" disabled>
                                                 <input type="hidden" name="item_id" id="item_id" value="0">
                                             </div>
-                                            <div class="panel panel-default">
+                                            <div class="form-group panel panel-default">
                                                 <div class="panel-heading">
                                                     Parameter
                                                 </div>
                                                 <!-- /.panel-heading -->
-                                                <div class="panel-body">
+                                                <div class="form-group panel-body">
                                                     <div class="table-responsive">
                                                         <table class="table table-striped">
                                                             <thead>
@@ -62,7 +62,7 @@
                                                                 <tr>
                                                                     <td>1</td>
                                                                     <td>
-                                                                        <select name="aspek1">
+                                                                        <select class="form-group" name="aspek1">
                                                                             <option value="harga" selected>Harga</option>
                                                                             <option value="kecepatan">Kecepatan Pengiriman</option>
                                                                             <option value="tempo">Jatuh Tempo</option>
@@ -73,7 +73,7 @@
                                                                 <tr>
                                                                     <td>2</td>
                                                                     <td>
-                                                                        <select name="aspek2">
+                                                                        <select class="form-group" name="aspek2">
                                                                             <option value="harga">Harga</option>
                                                                             <option value="kecepatan" selected>Kecepatan Pengiriman</option>
                                                                             <option value="tempo">Jatuh Tempo</option>
@@ -84,7 +84,7 @@
                                                                 <tr>
                                                                     <td>3</td>
                                                                     <td>
-                                                                        <select name="aspek3">
+                                                                        <select class="form-group" name="aspek3">
                                                                             <option value="harga">Harga</option>
                                                                             <option value="kecepatan">Kecepatan Pengiriman</option>
                                                                             <option value="tempo" selected>Jatuh Tempo</option>
@@ -95,7 +95,7 @@
                                                                 <tr>
                                                                     <td>4</td>
                                                                     <td>
-                                                                        <select name="aspek4">
+                                                                        <select class="form-group" name="aspek4">
                                                                             <option value="harga">Harga</option>
                                                                             <option value="kecepatan">Kecepatan Pengiriman</option>
                                                                             <option value="tempo">Jatuh Tempo</option>

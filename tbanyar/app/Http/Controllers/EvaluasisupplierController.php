@@ -7,6 +7,7 @@ use App\Items;
 use App\Suppliers;
 use Illuminate\Support\Facades\Input;
 use App\Detailitem;
+use App\Order;
 
 class evaluasisupplierController extends Controller
 {
@@ -67,35 +68,60 @@ class evaluasisupplierController extends Controller
 
         //Kondisi hanya 1 orang Supplier
         if(count($supplierDetail) == 1){
-            $suppliers = Suppliers::find($supplierDetail[0]->suppliers_id);
-            return view('hasilsupplier', compact('suppliers'));
+            $listSupplier = Suppliers::where('id',$supplierDetail[0]->suppliers_id)->get();
+            return view('hasilsupplier', compact('listSupplier'));
         }
         else{
             //Definisikan Variabel Pembagi
-            $pembagiharga = 0;
-            $pembagikecepatanpengiriman =0;
+            $pembagiharga = 99;
+            $pembagikecepatanpengiriman =99;
             $pembagijatuhtempo = 0;
             $pembagiketersediaan = 0;
             for ($i=0; $i < count($supplierDetail) - 1; $i++) { 
                 if($supplierDetail[$i]->hargabeli < $supplierDetail[$i+1]->hargabeli){
-                    $pembagiharga = $supplierDetail[$i]->hargabeli;
+                    if($supplierDetail[$i]->hargabeli < $pembagiharga){
+                        $pembagiharga = $supplierDetail[$i]->hargabeli;
+                    }
                 }
                 else{
-                    $pembagiharga = $supplierDetail[$i+1]->hargabeli;
+                    if($supplierDetail[$i+1]->hargabeli < $pembagiharga){
+                        $pembagiharga = $supplierDetail[$i+1]->hargabeli;   
+                    }
                 }
 
                 if($supplierDetail[$i]->suppliers->lamapengiriman < $supplierDetail[$i+1]->suppliers->lamapengiriman){
-                    $pembagikecepatanpengiriman = $supplierDetail[$i]->suppliers->lamapengiriman;
+                    if($supplierDetail[$i]->suppliers->lamapengiriman < $pembagikecepatanpengiriman){
+                        $pembagikecepatanpengiriman = $supplierDetail[$i]->suppliers->lamapengiriman;
+                    }
                 }
                 else{
-                     $pembagikecepatanpengiriman = $supplierDetail[$i+1]->suppliers->lamapengiriman;
+                    if($supplierDetail[$i+1]->suppliers->lamapengiriman < $pembagikecepatanpengiriman){
+                        $pembagikecepatanpengiriman = $supplierDetail[$i+1]->suppliers->lamapengiriman;
+                    }
                 }
 
                 if($supplierDetail[$i]->suppliers->jatuhtempo > $supplierDetail[$i+1]->suppliers->jatuhtempo){
-                    $pembagijatuhtempo = $supplierDetail[$i]->suppliers->jatuhtempo;
+                    if($supplierDetail[$i]->suppliers->jatuhtempo > $pembagijatuhtempo){
+                        $pembagijatuhtempo = $supplierDetail[$i]->suppliers->jatuhtempo;
+                    }
                 }
                 else{
-                    $pembagijatuhtempo = $supplierDetail[$i+1]->suppliers->jatuhtempo;
+                    if($supplierDetail[$i+1]->suppliers->jatuhtempo > $pembagijatuhtempo){
+                        $pembagijatuhtempo = $supplierDetail[$i+1]->suppliers->jatuhtempo;
+                    }
+                }
+
+                $bykTransaksiSupSatu = Order::where('suppliers_id', $supplierDetail[$i]->suppliers_id)->get();
+                $bykTransaksiSupDua = Order::where('suppliers_id', $supplierDetail[$i+1]->suppliers_id)->get();
+                if(count($bykTransaksiSupSatu) > count($bykTransaksiSupDua)){
+                    if(count($bykTransaksiSupSatu) > $pembagiketersediaan){
+                        $pembagiketersediaan = count($bykTransaksiSupSatu);
+                    }
+                }
+                else{
+                    if(count($bykTransaksiSupDua) > $pembagiketersediaan){
+                        $pembagiketersediaan = count($bykTransaksiSupDua);
+                    }
                 }
             }
             //Perhitungan nilai-nilai Suppliers
@@ -103,15 +129,16 @@ class evaluasisupplierController extends Controller
                 $supplierDetail[$i]->nilaiHargaSupplier = $pembagiharga/$supplierDetail[$i]->hargabeli;
                 $supplierDetail[$i]->nilaiKecepatanSupplier = $pembagikecepatanpengiriman/$supplierDetail[$i]->suppliers->lamapengiriman;
                 $supplierDetail[$i]->nilaiJatuhtempoSupplier = $supplierDetail[$i]->suppliers->jatuhtempo/$pembagijatuhtempo;
-                // $supplierDetail[$i]->nilaiSupplier->ketersediaan = $pembagiharga/$supplierDetail[$i]->hargabeli;
+
+                $bykTransaksi = Order::where('suppliers_id',$supplierDetail[$i]->suppliers_id)->get();
+                $supplierDetail[$i]->nilaiKetersediaan = count($bykTransaksi)/$pembagiketersediaan;
 
                 //Hitung Nilai Total nya
-                $supplierDetail[$i]->nilaiTotal = ($supplierDetail[$i]->nilaiHargaSupplier*$harga)+($supplierDetail[$i]->nilaiKecepatanSupplier*$kecepatan_pengiriman)+($supplierDetail[$i]->nilaiJatuhtempoSupplier*$jatuh_tempo);
+                $supplierDetail[$i]->nilaiTotal = ($supplierDetail[$i]->nilaiHargaSupplier*$harga)+($supplierDetail[$i]->nilaiKecepatanSupplier*$kecepatan_pengiriman)+($supplierDetail[$i]->nilaiJatuhtempoSupplier*$jatuh_tempo)+($supplierDetail[$i]->nilaiKetersediaan*$ketersediaan);
             }
 
-            $listSupplierSorted = $supplierDetail->sortByDesc('nilaiTotal');
-            $suppliers = $supplierDetail;
-            return view('hasilsupplier', compact('listSupplierSorted','suppliers'));
+            $listSupplier = $supplierDetail->sortByDesc('nilaiTotal');
+            return view('hasilsupplier', compact('listSupplier'));
         }
     }
 

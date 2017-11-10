@@ -16,7 +16,7 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body col">
                                 <div class="row col-lg-12">
-                                    <form role="form" novalidate="novalidate" method="post" enctype="multipart/form-data" action="inputbarang/addbarangbaru">
+                                    <form method="post" action="inputbarang/addbarangbaru">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
@@ -27,13 +27,10 @@
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Supplier &nbsp   &nbsp   &nbsp   &nbsp   &nbsp</label>
-                                                <select name="supplier">
+                                                <select class="form-group" name="supplier">
                                                     @foreach($suppliers as $supplier)
                                                     <option value={{$supplier->id}}>{{$supplier->nama}}</option>
                                                     @endforeach
-                                                    <!-- <option value="kecepatan">Jaya Aman Sentosa</option>
-                                                    <option value="tempo">Kopo Jaya</option>
-                                                    <option value="ketersediaan">Gardu Cahaya</option> -->
                                                 </select>
                                             </div>
                                         </div>
