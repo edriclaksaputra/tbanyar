@@ -17,26 +17,55 @@
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <div class="dataTable_wrapper">
-                                    <form role="form">
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>No. Faktur &nbsp</label>
-                                                <input type="text" name="kodesupplier">
-                                            </div>
-                                        </div>
+                                    <form role="role" novalidate="novalidate" method="post" enctype="multipart/form-data" action="penjualan/addfaktur">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Hari/Tanggal</label>
-                                                <input type="text" name="kodesupplier">
+                                                <input type="text" name="tanggal">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Konsumen &nbsp&nbsp</label>
-                                                <input type="text" name="kodesupplier">
+                                                <input type="text" name="namakonsumen">
                                             </div>
                                         </div>
-
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label>Alamat &nbsp &nbsp&nbsp  &nbsp&nbsp&nbsp</label>
+                                                <input type="text" name="alamatkonsumen">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-lg-4">
+                                                <label>Keterangan / Request</label>
+                                                <textarea name="keterangan" rows="3" cols="50"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-info">
+                                        <strong>List Barang Dibeli</strong>
+                                        </div>
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="col-lg-1">No.</th>
+                                                    <th class="col-lg-3">Nama Barang</th>
+                                                    <th class="col-lg-3">Harga Barang</th>
+                                                    <th class="col-lg-2">Jumlah</th>
+                                                    <th class="col-lg-2">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="form-group" id="tablebarangbeli">
+                                                <!-- Diisi lewat JavaScript -->
+                                            </tbody>
+                                        </table>
+                                        <div class="row text-right">
+                                            <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
+                                            <input type="hidden" name="belanjatotal" id="belanjatotal">
+                                        </div>
+                                        <button type="submit" class="btn btn-success fa fa-check"> Purchase</button>
+                                    </form>
                                         <hr>
                                         <div class="alert alert-warning">
                                         <strong>List Barang</strong>
@@ -52,74 +81,21 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($items as $item)
                                                 <tr class="odd gradeX">
-                                                    <td>1</td>
-                                                    <td><label id="nama">Kayu Balok Kamper Banjar</label></td>
-                                                    <td><label id="harga">125000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama').innerHTML, document.getElementById('harga').innerHTML, document.getElementById('banyak').value)">Add</button></td>
+                                                    <td>{{$loop->iteration}}</td>
+                                                    <input type="hidden" id="item_id{{$loop->iteration}}" name="item_id" value={{$item->id}}>
+                                                    <td><label id="nama{{$loop->iteration}}">{{$item->nama}}</label></td>
+                                                    <td><label id="harga{{$loop->iteration}}">{{$item->hargajual}}</label></td>
+                                                    <td class="center"><input type="number" name="banyak" id="banyak{{$loop->iteration}}" value="0"></td>
+                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama{{$loop->iteration}}').innerHTML, document.getElementById('harga{{$loop->iteration}}').innerHTML, document.getElementById('banyak{{$loop->iteration}}').value, document.getElementById('item_id{{$loop->iteration}}').value)">Add</button></td>
                                                 </tr>
-                                                <tr class="even gradeC">
-                                                    <td>2</td>
-                                                    <td>Plin Tegel Warna 15 x 30</td>
-                                                    <td><label id="harga">90000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
-                                                <tr class="odd gradeA">
-                                                    <td>3</td>
-                                                    <td>Marmer Alam Lampung Ukuran Besar</td>
-                                                    <td><label id="harga">150000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
-                                                <tr class="even gradeA">
-                                                    <td>4</td>
-                                                    <td>Pasir Teras</td>
-                                                    <td><label id="harga">65000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
-                                                <tr class="odd gradeA">
-                                                    <td>5</td>
-                                                    <td>Grafel U 40 cm'</td>
-                                                    <td><label id="harga">85000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
-                                                <tr class="even gradeA">
-                                                    <td>6</td>
-                                                    <td>Plat Alumunium 0.4 mm</td>
-                                                    <td><label id="harga">70000</label></td>
-                                                    <td class="center"><input type="number" name="banyak" id="banyak" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus">Add</button></td>
-                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
-                                    </form>
                                     <hr>
                                     <form role="role">
-                                        <div class="alert alert-info">
-                                        <strong>List Barang Dibeli</strong>
-                                        </div>
-                                        <table class="table table-striped table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th class="col-lg-1">No.</th>
-                                                    <th class="col-lg-3">Nama Barang</th>
-                                                    <th class="col-lg-3">Harga Barang</th>
-                                                    <th class="col-lg-2">Jumlah</th>
-                                                    <th class="col-lg-2">Total</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tablebarangbeli">
-                                                <!-- Diisi lewat JavaScript -->
-                                            </tbody>
-                                        </table>
-                                        <div class="row text-right">
-                                            <label class="col-lg-10 text-right">Total :</label><p class="col-lg-2 text-left" id="totalbelanja">0</p>
-                                        </div>
-                                        <button type="button" class="btn btn-success fa fa-check"> Save</button>
+                                        
                                     </form>
                                 </div>
                                 <!-- /.table-responsive -->
@@ -150,7 +126,8 @@
         <script>
             var counter = 0;
             var total = 0;
-            function addBarangBeli(namaBarang,harga,banyak){
+            function addBarangBeli(namaBarang,harga,banyak,item_id){
+
                 var table = document.getElementById('tablebarangbeli');
                 var row = table.insertRow(counter);
 
@@ -161,24 +138,19 @@
                 var cell4 = row.insertCell(4);
 
                 cell0.innerHTML = counter+1;
-                cell1.innerHTML = namaBarang;
-                cell2.innerHTML = harga;
-                cell3.innerHTML = '<label id="banyakBarangDibeli">'+banyak+'</label>'
-                cell4.innerHTML = harga*banyak;
+                cell1.innerHTML = '<label>'+namaBarang+'</label><input type="hidden" name="item_id'+counter+'" value="'+item_id+'"><input type="hidden" name="counter" value="'+counter+'">';
+                cell2.innerHTML = '<label>'+harga+'</label>';
+                cell3.innerHTML = '<label>'+banyak+'</label><input type="hidden" name="banyakBarang'+counter+'" value="'+banyak+'">';
+                cell4.innerHTML = '<label>'+harga*banyak+'</label><input type="hidden" name="totalbelanjaan'+counter+'" value="'+harga*banyak+'">';
 
                 total = total+(harga*banyak);
                 var totalbelanja = document.getElementById('totalbelanja');
                 totalbelanja.innerHTML = total;
-                console.log(total);
+
+                var belanjatotal = document.getElementById('belanjatotal');
+                belanjatotal.value = total;
 
                 counter++;
-            }
-        </script>
-        <script>
-            function removeBarangBeli(counter){
-                console.log(counter);
-                // var table = document.getElementById('tablebarangbeli');
-                // table.deleteRow(counter);
             }
         </script>
     </body>

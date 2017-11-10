@@ -9,7 +9,7 @@ class Faktur extends Model
 {
     protected $table = 'faktur';
 
-    public funtion Detailfaktur(){
+    public function Detailfaktur(){
     	return $this->hasMany('App\Detailfaktur');
     }
 }

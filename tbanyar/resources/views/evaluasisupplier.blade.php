@@ -23,47 +23,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach($items as $item)
                                             <tr class="odd gradeX">
-                                                <td>1</td>
-                                                <td id="namabarang">Pasir Urug</td>
-                                                <td><button type="button" class="btn btn-info" onclick="pilihBarang(document.getElementById('namabarang').innerHTML)">Pilih Barang</button></td>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td id="namabarang{{$loop->iteration}}">{{$item->nama}}</td>
+                                                <td><button type="button" class="btn btn-info" onclick="pilihBarang(document.getElementById('namabarang{{$loop->iteration}}').innerHTML, {{$item->id}})">Pilih Barang</button></td>
                                             </tr>
-                                            <tr class="odd gradeX">
-                                                <td>2</td>
-                                                <td>Sirtu</td>
-                                                <td><button type="button" class="btn btn-info">Pilih Barang</button></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>3</td>
-                                                <td>Kayu Papan Borneo Super</td>
-                                                <td><button type="button" class="btn btn-info">Pilih Barang</button></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>4</td>
-                                                <td>Bilik Bambu Hitam Varias</td>
-                                                <td><button type="button" class="btn btn-info">Pilih Barang</button></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>5</td>
-                                                <td>Batu Gosok ( Apung )</td>
-                                                <td><button type="button" class="btn btn-info">Pilih Barang</button></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>6</td>
-                                                <td>Karpet Kelas Baik LN</td>
-                                                <td><button type="button" class="btn btn-info">Pilih Barang</button></td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
                                 <hr>
-                                <form role="form">
+                                <form role="form" novalidate="novalidate" method="post" enctype="multipart/form-data" action="rekomendsupplier">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="form-group col-lg-12">
                                             <div class="alert alert-success">
                                                 <label class="col-lg-2">Nama Barang</label>
                                                 <input type="text" name="namabarang" id="namaBarangDipilih" disabled>
+                                                <input type="hidden" name="item_id" id="item_id" value="0">
                                             </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
@@ -94,7 +73,7 @@
                                                                 <tr>
                                                                     <td>2</td>
                                                                     <td>
-                                                                        <select name="aspek1">
+                                                                        <select name="aspek2">
                                                                             <option value="harga">Harga</option>
                                                                             <option value="kecepatan" selected>Kecepatan Pengiriman</option>
                                                                             <option value="tempo">Jatuh Tempo</option>
@@ -105,7 +84,7 @@
                                                                 <tr>
                                                                     <td>3</td>
                                                                     <td>
-                                                                        <select name="aspek1">
+                                                                        <select name="aspek3">
                                                                             <option value="harga">Harga</option>
                                                                             <option value="kecepatan">Kecepatan Pengiriman</option>
                                                                             <option value="tempo" selected>Jatuh Tempo</option>
@@ -116,7 +95,7 @@
                                                                 <tr>
                                                                     <td>4</td>
                                                                     <td>
-                                                                        <select name="aspek1">
+                                                                        <select name="aspek4">
                                                                             <option value="harga">Harga</option>
                                                                             <option value="kecepatan">Kecepatan Pengiriman</option>
                                                                             <option value="tempo">Jatuh Tempo</option>
@@ -131,7 +110,7 @@
                                                 </div>
                                                 <!-- /.panel-body -->
                                             </div>
-                                            <button type="button" class="btn btn-success">Submit</button>
+                                            <button type="submit" class="btn btn-success">Show Result</button>
                                         </div>
                                     </div>
                                 </form>
@@ -141,45 +120,6 @@
                         <!-- /.panel -->
                     </div>
                     <!-- /.col-lg-8 -->
-                    <div class="col-lg-5">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Hasi Alternatif
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>No. Telp</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Semen Tiga Roda</td>
-                                                <td>Cipamokolan, Rancasari, Bandung City, West Java 40292</td>
-                                                <td>44534563456242</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Kopo Jaya</td>
-                                                <td>Jl. LL. RE. Martadinata No.74-80, Cihapit, Bandung Wetan, Kota</td>
-                                                <td>54564534512363</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
                 </div>
                 <!-- /.row -->
             </div>
@@ -199,9 +139,12 @@
             });
         </script>
         <script>
-            function pilihBarang(namaBarang){
+            function pilihBarang(namaBarang, item_id){
                 var namaBarangDipilih = document.getElementById('namaBarangDipilih');
                 namaBarangDipilih.value = namaBarang;
+
+                var barang_id = document.getElementById('item_id');
+                barang_id.value = item_id;
             }
         </script>
     </body>

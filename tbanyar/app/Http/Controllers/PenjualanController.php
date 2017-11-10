@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Items;
+use App\Faktur;
+use App\Detailfaktur;
+use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
 
 class penjualanController extends Controller
 {
@@ -13,7 +18,8 @@ class penjualanController extends Controller
      */
     public function index()
     {
-        return view('penjualan');
+        $items = Items::get();
+        return view('penjualan', compact('items'));
     }
 
     /**
@@ -23,7 +29,27 @@ class penjualanController extends Controller
      */
     public function create()
     {
-        //
+        $counter = Input::get('counter');
+
+        $faktur = new Faktur;
+        $faktur->tanggal = Input::get('tanggal');
+        $faktur->customer = Input::get('namakonsumen');
+        $faktur->alamat = Input::get('alamatkonsumen');
+        $faktur->total = Input::get('belanjatotal');
+        $faktur->save();
+        
+        //Input ke detail Faktur
+        $faktur_id = Faktur::where('created_at', Carbon::now())->first();
+        for ($i=0; $i <= $counter; $i++) {
+            $detailfaktur = new Detailfaktur;
+            $detailfaktur->faktur_id = $faktur_id->id;
+            $detailfaktur->items_id = Input::get('item_id'.$i);
+            $detailfaktur->banyak = Input::get('banyakBarang'.$i);
+            $detailfaktur->subtotal = Input::get('totalbelanjaan'.$i);
+            $detailfaktur->save();
+        }
+
+        return redirect('penjualan');
     }
 
     /**

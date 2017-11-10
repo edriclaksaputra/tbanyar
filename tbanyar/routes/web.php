@@ -21,6 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('detailorder', 'DetailorderController@index')->name('detailorder');
 Route::post('inputorder', 'DetailorderController@create')->name('inputorder');
 Route::get('evaluasisupplier', 'EvaluasisupplierController@index')->name('evaluasisupplier');
+Route::post('rekomendsupplier', 'EvaluasisupplierController@show')->name('rekomendsupplier');
 Route::get('inputbarang', 'InputbarangController@index')->name('inputbarang');
 Route::post('inputbarang/addbarangbaru', 'InputbarangController@create')->name('addbarangbaru');
 Route::get('inputpo', 'InputpoController@index')->name('inputpo');
@@ -29,5 +30,6 @@ Route::post('inputsupplier/addnewsupplier', 'InputsupplierController@create')->n
 Route::get('listbarang', 'ListbarangController@index')->name('listbarang');
 Route::get('listsupplier', 'ListsupplierController@index')->name('listsupplier');
 Route::get('penjualan', 'PenjualanController@index')->name('penjualan');
+Route::post('penjualan/addfaktur', 'PenjualanController@create')->name('addfaktur');
 Route::get('validasipo', 'ValidasipoController@index')->name('validasipo');
 Route::post('validasipo/validateorder', 'ValidasipoController@update')->name('validateorder');
