@@ -30,10 +30,10 @@
                                         <tbody>
                                             @if(count($listSupplier) == 1)
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>1</td>
+                                                <td>{{$listSupplier[0]->nama}}</td>
+                                                <td>{{$listSupplier[0]->alamat}}</td>
+                                                <td>{{$listSupplier[0]->telp}}</td>
                                             </tr>
                                             @else
                                             @foreach($listSupplier as $supplier)

@@ -35,13 +35,13 @@ class inputbarangController extends Controller
         $item->save();
 
         $itemDetail = new Detailitem;
-        $itemDetail->id_supplier = Input::get('supplier');
+        $itemDetail->suppliers_id = Input::get('supplier');
 
         //buat dapet id barang
         $namaItem = Input::get('namabarang');
         $id_barang = Items::where('nama',$namaItem)->first();
         //
-        $itemDetail->id_item = $id_barang->id;
+        $itemDetail->items_id = $id_barang->id;
         $itemDetail->hargabeli = Input::get('hargabeli');
         $itemDetail->save();
 

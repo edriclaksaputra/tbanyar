@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Order;
 use Illuminate\Support\Facades\Input;
 use Carbon\Carbon;
+use App\Detailorder;
+use App\Detailitem;
+use App\Items;
 
 class validasipoController extends Controller
 {
@@ -79,6 +82,13 @@ class validasipoController extends Controller
         $order->tanggaldatang = Carbon::now();
         $order->save();
 
+        $detailorder = Detailorder::where('order_id',$order_id)->get();
+        for ($i=0; $i < count($detailorder); $i++) { 
+            $detailitem = Detailitem::find($detailorder[$i]->detailitem_id);
+            $item = Items::find($detailitem->items_id);
+            $item->stock = $item->stock+$detailorder[$i]->banyak;
+            $item->save();
+        }
         return redirect('validasipo');
     }
 
