@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Detailorder;
 use App\Detailitem;
 use App\Items;
+use App\Suppliers;
 
 class validasipoController extends Controller
 {
@@ -81,6 +82,12 @@ class validasipoController extends Controller
         $order->status = 1;
         $order->tanggaldatang = Carbon::now();
         $order->save();
+        //update supplier lama kirim
+        $supplier = Suppliers::find($order->suppliers_id);
+        $tanggal = Carbon::parse($order->tanggal);
+        $supplier->lamapengiriman = $order->tanggaldatang->diffInDays($tanggal);
+        $supplier->save();
+        //
 
         $detailorder = Detailorder::where('order_id',$order_id)->get();
         for ($i=0; $i < count($detailorder); $i++) { 

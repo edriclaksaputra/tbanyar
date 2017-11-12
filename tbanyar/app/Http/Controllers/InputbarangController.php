@@ -32,20 +32,42 @@ class inputbarangController extends Controller
         $item->nama = Input::get('namabarang');
         $item->stock = Input::get('stockbarang');
         $item->hargajual = Input::get('hargajual');
-        $item->save();
 
-        $itemDetail = new Detailitem;
-        $itemDetail->suppliers_id = Input::get('supplier');
+        $cekItem = Items::where('nama',$item->nama)->get()->first();
+        if($cekItem == null){
+            $item->save();
 
-        //buat dapet id barang
-        $namaItem = Input::get('namabarang');
-        $id_barang = Items::where('nama',$namaItem)->first();
-        //
-        $itemDetail->items_id = $id_barang->id;
-        $itemDetail->hargabeli = Input::get('hargabeli');
-        $itemDetail->save();
+            $itemDetail = new Detailitem;
+            $itemDetail->suppliers_id = Input::get('supplier');
 
-        return redirect('listbarang');
+            //buat dapet id barang
+            $namaItem = Input::get('namabarang');
+            $id_barang = Items::where('nama',$namaItem)->first();
+            //
+            $itemDetail->items_id = $id_barang->id;
+            $itemDetail->hargabeli = Input::get('hargabeli');
+            $itemDetail->save();
+
+            return redirect('listbarang');
+        }
+        else{
+            $cekItem->stock = $cekItem->stock+$item->stock;
+            $cekItem->save();
+
+            $itemDetail = new Detailitem;
+            $itemDetail->suppliers_id = Input::get('supplier');
+
+            //buat dapet id barang
+            $namaItem = Input::get('namabarang');
+            $id_barang = Items::where('nama',$namaItem)->first();
+            //
+            $itemDetail->items_id = $id_barang->id;
+            $itemDetail->hargabeli = Input::get('hargabeli');
+            $itemDetail->save();
+            return redirect('listbarang');
+        }
+
+        
     }
 
     /**

@@ -74,54 +74,26 @@ class evaluasisupplierController extends Controller
         else{
             //Definisikan Variabel Pembagi
             $pembagiharga = 99;
-            $pembagikecepatanpengiriman =99;
+            $pembagikecepatanpengiriman = 99;
             $pembagijatuhtempo = 0;
             $pembagiketersediaan = 0;
-            for ($i=0; $i < count($supplierDetail) - 1; $i++) { 
-                if($supplierDetail[$i]->hargabeli < $supplierDetail[$i+1]->hargabeli){
-                    if($supplierDetail[$i]->hargabeli < $pembagiharga){
-                        $pembagiharga = $supplierDetail[$i]->hargabeli;
-                    }
-                }
-                else{
-                    if($supplierDetail[$i+1]->hargabeli < $pembagiharga){
-                        $pembagiharga = $supplierDetail[$i+1]->hargabeli;   
-                    }
+            for ($i=0; $i < count($supplierDetail); $i++) {
+
+                if($supplierDetail[$i]->hargabeli < $pembagiharga){
+                    $pembagiharga = $supplierDetail[$i]->hargabeli;
                 }
 
-                if($supplierDetail[$i]->suppliers->lamapengiriman < $supplierDetail[$i+1]->suppliers->lamapengiriman){
-                    if($supplierDetail[$i]->suppliers->lamapengiriman < $pembagikecepatanpengiriman){
-                        $pembagikecepatanpengiriman = $supplierDetail[$i]->suppliers->lamapengiriman;
-                    }
-                }
-                else{
-                    if($supplierDetail[$i+1]->suppliers->lamapengiriman < $pembagikecepatanpengiriman){
-                        $pembagikecepatanpengiriman = $supplierDetail[$i+1]->suppliers->lamapengiriman;
-                    }
+                if($supplierDetail[$i]->suppliers->lamapengiriman < $pembagikecepatanpengiriman){
+                    $pembagikecepatanpengiriman = $supplierDetail[$i]->suppliers->lamapengiriman;
                 }
 
-                if($supplierDetail[$i]->suppliers->jatuhtempo > $supplierDetail[$i+1]->suppliers->jatuhtempo){
-                    if($supplierDetail[$i]->suppliers->jatuhtempo > $pembagijatuhtempo){
-                        $pembagijatuhtempo = $supplierDetail[$i]->suppliers->jatuhtempo;
-                    }
-                }
-                else{
-                    if($supplierDetail[$i+1]->suppliers->jatuhtempo > $pembagijatuhtempo){
-                        $pembagijatuhtempo = $supplierDetail[$i+1]->suppliers->jatuhtempo;
-                    }
+                if($supplierDetail[$i]->suppliers->jatuhtempo > $pembagijatuhtempo){
+                    $pembagijatuhtempo = $supplierDetail[$i]->suppliers->jatuhtempo;
                 }
 
                 $bykTransaksiSupSatu = Order::where('suppliers_id', $supplierDetail[$i]->suppliers_id)->get();
-                $bykTransaksiSupDua = Order::where('suppliers_id', $supplierDetail[$i+1]->suppliers_id)->get();
-                if(count($bykTransaksiSupSatu) > count($bykTransaksiSupDua)){
-                    if(count($bykTransaksiSupSatu) > $pembagiketersediaan){
-                        $pembagiketersediaan = count($bykTransaksiSupSatu);
-                    }
-                }
-                else{
-                    if(count($bykTransaksiSupDua) > $pembagiketersediaan){
-                        $pembagiketersediaan = count($bykTransaksiSupDua);
-                    }
+                if(count($bykTransaksiSupSatu) > $pembagiketersediaan){
+                    $pembagiketersediaan = count($bykTransaksiSupSatu);
                 }
             }
             //Perhitungan nilai-nilai Suppliers
