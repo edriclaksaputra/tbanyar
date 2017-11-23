@@ -58,10 +58,10 @@ class evaluasisupplierController extends Controller
         $aspek_4 = Input::get('aspek4');
 
         //Definisi Konstanta
-        $kecepatan_pengiriman = 0.4;
-        $harga = 0.3;
-        $ketersediaan = 0.2;
-        $jatuh_tempo = 0.1;
+        $kecepatan_pengiriman = 0.3;
+        $harga = 0.4;
+        $ketersediaan = 0.1;
+        $jatuh_tempo = 0.2;
 
         //List semua supplier penyedia supplierDetail
         $supplierDetail = Detailitem::where('items_id',$item_id)->get();

@@ -23,7 +23,6 @@
                                                 <th class="col-lg-1">No.</th>
                                                 <th class="col-lg-3">Nama Barang</th>
                                                 <th class="col-lg-2">Harga Jual</th>
-                                                <th class="col-lg-1">Stock</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -32,7 +31,6 @@
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$item->nama}}</td>
                                                 <td>{{$item->hargajual}}</td>
-                                                <td class="center">{{$item->stock}}</td>
                                             </tr>
                                             @endforeach
                                             <!-- <tr class="even gradeC">

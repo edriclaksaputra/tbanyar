@@ -30,7 +30,8 @@ class inputbarangController extends Controller
     {
         $item = new Items;
         $item->nama = Input::get('namabarang');
-        $item->stock = Input::get('stockbarang');
+        // $item->stock = Input::get('stockbarang');
+        $item->stock = 0;
         $item->hargajual = Input::get('hargajual');
 
         $cekItem = Items::where('nama',$item->nama)->get()->first();

@@ -54,9 +54,9 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li>
+                            <!-- <li>
                                 <a href="penjualan"><i class="fa fa-dollar fa-fw"></i> Penjualan</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="#"><i class="fa fa-users fa-fw"></i> Supplier<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">

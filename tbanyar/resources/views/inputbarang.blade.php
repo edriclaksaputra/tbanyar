@@ -46,12 +46,12 @@
                                                 <input type="text" name="hargajual">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="form-group col-lg-4">
                                                 <label>Stok &nbsp &nbsp &nbsp   &nbsp&nbsp &nbsp &nbsp   &nbsp&nbsp&nbsp</label>
                                                 <input type="text" name="stockbarang">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-success fa fa-check"> Save</button>
                                         </div>
