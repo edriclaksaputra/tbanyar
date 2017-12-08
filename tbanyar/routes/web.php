@@ -33,3 +33,6 @@ Route::get('penjualan', 'PenjualanController@index')->name('penjualan');
 Route::post('penjualan/addfaktur', 'PenjualanController@create')->name('addfaktur');
 Route::get('validasipo', 'ValidasipoController@index')->name('validasipo');
 Route::post('validasipo/validateorder', 'ValidasipoController@update')->name('validateorder');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
