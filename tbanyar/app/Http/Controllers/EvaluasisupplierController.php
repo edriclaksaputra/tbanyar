@@ -80,7 +80,7 @@ class evaluasisupplierController extends Controller
             $pembagiharga = 99;
             $pembagikecepatanpengiriman = 99;
             $pembagijatuhtempo = 0;
-            $pembagiketersediaan = 0;
+            $pembagiketersediaan = 1;
             for ($i=0; $i < count($supplierDetail); $i++) {
 
                 if($supplierDetail[$i]->hargabeli < $pembagiharga){

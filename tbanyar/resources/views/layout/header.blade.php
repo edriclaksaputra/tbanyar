@@ -90,6 +90,9 @@
                                         <a href="listbarang"> List Barang</a>
                                     </li>
                                     <li>
+                                        <a href="listbarangsupplier"> Barang Supplier</a>
+                                    </li>
+                                    <li>
                                         <a href="inputbarang"> Input Barang Baru</a>
                                     </li>
                                 </ul>

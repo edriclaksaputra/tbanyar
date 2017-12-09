@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Items;
+use Illuminate\Support\Facades\Input;
+use App\Detailitem;
+use App\Suppliers;
 
 class listbarangController extends Controller
 {
@@ -29,7 +32,8 @@ class listbarangController extends Controller
      */
     public function create()
     {
-        //
+        $items = items::get();
+        return view('listbarangsupplier', compact('items'));
     }
 
     /**
@@ -49,9 +53,12 @@ class listbarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $idbarang = Input::get('idbarang');
+
+        $itemSupplier = Detailitem::where('items_id', $idbarang)->get();
+        return view('detailbarangsupplier', compact('itemSupplier'));
     }
 
     /**
@@ -60,9 +67,13 @@ class listbarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function insert()
     {
-        //
+        $idbarang = Input::get('iditem');
+        $itemDetail = Items::where('id', $idbarang)->first();
+        $suppliers = suppliers::get();
+
+        return view('inputbarangsupplierbaru', compact('itemDetail', 'suppliers'));
     }
 
     /**
@@ -72,9 +83,19 @@ class listbarangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
+        $idbarang = Input::get('idbarang');
+        $idsupplier = Input::get('idsupplier');
+        $hargabeli = Input::get('hargabeli');
+
+        $detailItemBaru = new Detailitem;
+        $detailItemBaru->items_id = $idbarang;
+        $detailItemBaru->suppliers_id = $idsupplier;
+        $detailItemBaru->hargabeli = $hargabeli;
+
+        $detailItemBaru->save();
+        return redirect('listbarangsupplier');
     }
 
     /**

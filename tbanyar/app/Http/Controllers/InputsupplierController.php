@@ -33,8 +33,8 @@ class inputsupplierController extends Controller
         $supplier->nama = Input::get('namasupplier');
         $supplier->alamat = Input::get('alamatsupplier');
         $supplier->telp = Input::get('telpsupplier');
-        $supplier->jatuhtempo = null;
-        $supplier->lamapengiriman = null;
+        $supplier->jatuhtempo = Input::get('jatuhtempo');
+        $supplier->lamapengiriman = Input::get('lamakirim');
         $supplier->save();
 
         return redirect('listsupplier');

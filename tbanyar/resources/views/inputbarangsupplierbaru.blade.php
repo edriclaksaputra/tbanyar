@@ -1,9 +1,8 @@
 @include('layout.header')
-
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Input Supplier Baru</h1>
+                        <h1 class="page-header">Input Barang Supplier</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -12,47 +11,38 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Data Supplier
+                                Data Barang
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body col">
                                 <div class="row col-lg-12">
-                                    <form role="form" method="post" action="inputsupplier/addnewsupplier">
+                                    <form method="post" action="listbarangsupplier.detail.addsupplier.save">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="form-group col-lg-4">
-                                                <label>Nama Supplier &nbsp</label>
-                                                <input class="form-group" type="text" name="namasupplier">
+                                                <label>Nama Barang &nbsp</label>
+                                                <input type="text" value="{{$itemDetail->nama}}" disabled>
+                                                <input type="hidden" name="idbarang" value="{{$itemDetail->id}}">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
-                                                <label>Alamat &nbsp</label>
-                                                <textarea rows="4" name="alamatsupplier" class="form-control"></textarea>
+                                                <label>Supplier &nbsp   &nbsp   &nbsp   &nbsp   &nbsp</label>
+                                                <select class="form-group" name="idsupplier">
+                                                    @foreach($suppliers as $supplier)
+                                                    <option value={{$supplier->id}}>{{$supplier->nama}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
-                                                <label>Nomor Telepon &nbsp  &nbsp   &nbsp   &nbsp   &nbsp   &nbsp   &nbsp   &nbsp</label>
-                                                <input class="form-group" type="text" name="telpsupplier">
+                                                <label>Harga Beli dari Supplier&nbsp &nbsp   &nbsp&nbsp</label>
+                                                <input type="text" name="hargabeli">
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>Jatuh Tempo (hari) &nbsp&nbsp&nbsp   &nbsp   &nbsp   &nbsp</label>
-                                                <input class="form-group" type="text" name="jatuhtempo">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <label>Lama Pengiriman (hari) &nbsp</label>
-                                                <input class="form-group" type="text" name="lamakirim">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
-                                                <button type="submit" class="btn btn-success">Save</button>
-                                            </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success fa fa-check"> Save</button>
                                         </div>
                                     </form>
                                 </div>
@@ -79,6 +69,12 @@
                         responsive: true
                 });
             });
+        </script>
+        <script>
+            function addNamaBarang(namaBarang){
+                document.getElementById('namanamabarang').value += namaBarang + '/';
+                document.getElementById('addnama').value = "";
+            }
         </script>
     </body>
 </html>
