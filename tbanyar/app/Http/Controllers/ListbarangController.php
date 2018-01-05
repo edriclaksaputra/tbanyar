@@ -57,8 +57,9 @@ class listbarangController extends Controller
     {
         $idbarang = Input::get('idbarang');
 
+        $namaBarang = Items::where('id', $idbarang)->pluck('nama')->first();
         $itemSupplier = Detailitem::where('items_id', $idbarang)->get();
-        return view('detailbarangsupplier', compact('itemSupplier'));
+        return view('detailbarangsupplier', compact('itemSupplier','namaBarang','idbarang'));
     }
 
     /**

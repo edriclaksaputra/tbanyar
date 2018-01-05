@@ -3,13 +3,30 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">{{$itemSupplier[0]->items->nama}}</h1>
+                        <h1 class="page-header">{{$namaBarang}}</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-8">
+                        @if(count($itemSupplier) == 0)
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>Supplier belum ada</h2>
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <form method="post" action="listbarangsupplier.detail.addsupplier">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary">+ Tambah Supplier Baru</button>
+                                    <input type="hidden" name="iditem" value="{{$idbarang}}">
+                                </form>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                        @else
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 List Supplier {{$itemSupplier[0]->items->nama}}
@@ -45,7 +62,7 @@
                             </div>
                             <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel -->
+                        @endif
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
