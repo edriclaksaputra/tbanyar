@@ -63,10 +63,10 @@
                                                                     <td>1</td>
                                                                     <td>
                                                                         <select class="form-group" name="aspek1">
-                                                                            <option value="harga" selected>Harga</option>
-                                                                            <option value="kecepatan">Kecepatan Pengiriman</option>
-                                                                            <option value="tempo">Jatuh Tempo</option>
-                                                                            <option value="ketersediaan">Ketersediaan Barang</option>
+                                                                            <option value="harga-0.4" selected>Harga</option>
+                                                                            <option value="kecepatan-0.4">Kecepatan Pengiriman</option>
+                                                                            <option value="jatuhtempo-0.4">Jatuh Tempo</option>
+                                                                            <option value="ketersediaan-0.4">Ketersediaan Barang</option>
                                                                         </select>
                                                                     </td>
                                                                 </tr>
@@ -74,10 +74,10 @@
                                                                     <td>2</td>
                                                                     <td>
                                                                         <select class="form-group" name="aspek2">
-                                                                            <option value="harga">Harga</option>
-                                                                            <option value="kecepatan" selected>Kecepatan Pengiriman</option>
-                                                                            <option value="tempo">Jatuh Tempo</option>
-                                                                            <option value="ketersediaan">Ketersediaan Barang</option>
+                                                                            <option value="harga-0.3">Harga</option>
+                                                                            <option value="kecepatan-0.3" selected>Kecepatan Pengiriman</option>
+                                                                            <option value="jatuhtempo-0.3">Jatuh Tempo</option>
+                                                                            <option value="ketersediaan-0.3">Ketersediaan Barang</option>
                                                                         </select>
                                                                     </td>
                                                                 </tr>
@@ -85,10 +85,10 @@
                                                                     <td>3</td>
                                                                     <td>
                                                                         <select class="form-group" name="aspek3">
-                                                                            <option value="harga">Harga</option>
-                                                                            <option value="kecepatan">Kecepatan Pengiriman</option>
-                                                                            <option value="tempo" selected>Jatuh Tempo</option>
-                                                                            <option value="ketersediaan">Ketersediaan Barang</option>
+                                                                            <option value="harga-0.2">Harga</option>
+                                                                            <option value="kecepatan-0.2">Kecepatan Pengiriman</option>
+                                                                            <option value="jatuhtempo-0.2" selected>Jatuh Tempo</option>
+                                                                            <option value="ketersediaan-0.2">Ketersediaan Barang</option>
                                                                         </select>
                                                                     </td>
                                                                 </tr>
@@ -96,10 +96,10 @@
                                                                     <td>4</td>
                                                                     <td>
                                                                         <select class="form-group" name="aspek4">
-                                                                            <option value="harga">Harga</option>
-                                                                            <option value="kecepatan">Kecepatan Pengiriman</option>
-                                                                            <option value="tempo">Jatuh Tempo</option>
-                                                                            <option value="ketersediaan" selected>Ketersediaan Barang</option>
+                                                                            <option value="harga-0.1">Harga</option>
+                                                                            <option value="kecepatan-0.1">Kecepatan Pengiriman</option>
+                                                                            <option value="jatuhtempo-0.1">Jatuh Tempo</option>
+                                                                            <option value="ketersediaan-0.1" selected>Ketersediaan Barang</option>
                                                                         </select>
                                                                     </td>
                                                                 </tr>

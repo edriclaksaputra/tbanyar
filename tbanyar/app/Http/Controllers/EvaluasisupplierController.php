@@ -56,16 +56,75 @@ class evaluasisupplierController extends Controller
     public function show()
     {
         $item_id = Input::get('item_id');
-        $aspek_1 = Input::get('aspek1');
-        $aspek_2 = Input::get('aspek2');
-        $aspek_3 = Input::get('aspek3');
-        $aspek_4 = Input::get('aspek4');
+        //get value dari depan
+        $a = Input::get('aspek1');
+        $b = Input::get('aspek2');
+        $c = Input::get('aspek3');
+        $d = Input::get('aspek4');
+
+        //masukin ke dalam array 2D
+        $aspek1 = explode('-', $a);
+        $aspek2 = explode('-', $b);
+        $aspek3 = explode('-', $c);
+        $aspek4 = explode('-', $d);
 
         //Definisi Konstanta
-        $kecepatan_pengiriman = 0.3;
-        $harga = 0.4;
-        $ketersediaan = 0.1;
-        $jatuh_tempo = 0.2;
+        if($aspek1[0] == 'harga'){
+            $harga = $aspek1[1];
+        }
+        else if($aspek1[0] == 'kecepatan'){
+            $kecepatan_pengiriman = $aspek1[1];
+        }
+        else if($aspek1[0] == 'jatuhtempo'){
+            $jatuh_tempo = $aspek1[1];
+        }
+        else {
+            $ketersediaan = $aspek1[1];
+        }
+
+        if($aspek2[0] == 'harga'){
+            $harga = $aspek2[1];
+        }
+        else if($aspek2[0] == 'kecepatan'){
+            $kecepatan_pengiriman = $aspek2[1];
+        }
+        else if($aspek2[0] == 'jatuhtempo'){
+            $jatuh_tempo = $aspek2[1];
+        }
+        else {
+            $ketersediaan = $aspek2[1];
+        }
+
+        if($aspek3[0] == 'harga'){
+            $harga = $aspek3[1];
+        }
+        else if($aspek3[0] == 'kecepatan'){
+            $kecepatan_pengiriman = $aspek3[1];
+        }
+        else if($aspek3[0] == 'jatuhtempo'){
+            $jatuh_tempo = $aspek3[1];
+        }
+        else {
+            $ketersediaan = $aspek3[1];
+        }
+
+        if($aspek4[0] == 'harga'){
+            $harga = $aspek4[1];
+        }
+        else if($aspek4[0] == 'kecepatan'){
+            $kecepatan_pengiriman = $aspek4[1];
+        }
+        else if($aspek4[0] == 'jatuhtempo'){
+            $jatuh_tempo = $aspek4[1];
+        }
+        else {
+            $ketersediaan = $aspek4[1];
+        }
+
+        // $harga = 0.4;
+        // $kecepatan_pengiriman = 0.3;
+        // $jatuh_tempo = 0.2;
+        // $ketersediaan = 0.1;
 
         //List semua supplier penyedia supplierDetail
         $supplierDetail = Detailitem::where('items_id',$item_id)->get();
