@@ -73,7 +73,7 @@
                                                 @foreach($listItem_supplier as $listItem)
                                                 <tr class="odd gradeX">
                                                     <td>{{$loop->iteration}}</td>
-                                                    <input type="hidden" id="detailbarang_id{{$loop->iteration}}" name="detailbarang_id" value={{$listItem->id}}>
+                                                    <input type="hidden" id="detailbarang_id{{$loop->iteration}}" name="detailbarang_id" value={{$listItem->items_id}}>
                                                     <td><label id="nama{{$loop->iteration}}">{{$listItem->items->nama}}</label></td>
                                                     <td><input type="number" name="harga" id="harga{{$loop->iteration}}" value="{{$listItem->hargabeli}}"></td>
                                                     <td class="center"><input type="number" name="banyak" id="banyak{{$loop->iteration}}" value="0"></td>
@@ -124,7 +124,7 @@
 
                 cell0.innerHTML = counter+1;
                 cell1.innerHTML = '<label>'+namaBarang+'</label><input type="hidden" name="detailbarang_id'+counter+'" value="'+detailbarang_id+'"><input type="hidden" name="counter" value="'+counter+'">';
-                cell2.innerHTML = '<label>'+harga+'</label>';
+                cell2.innerHTML = '<label>'+harga+'</label><input type="hidden" name="hargabarang'+counter+'" value="'+harga+'">';
                 cell3.innerHTML = '<label>'+banyak+'</label><input type="hidden" name="banyakBarang'+counter+'" value="'+banyak+'">';
                 cell4.innerHTML = '<label>'+harga*banyak+'</label><input type="hidden" name="totalbelanjaan'+counter+'" value="'+harga*banyak+'">';
 

@@ -64,6 +64,15 @@ class detailorderController extends Controller
             $detailorder->banyak = Input::get('banyakBarang'.$i);
             $detailorder->subtotal = Input::get('totalbelanjaan'.$i);
             $detailorder->save();
+
+            $hargasebelumnya = Input::get('hargabarang'.$i);
+            $cekhargabarang = Input::get('hargabarang'.$i);
+            $detailItem = Detailitem::where([['suppliers_id', $supplier_id],['items_id', $detailorder->detailitem_id]])->get()->first();
+            if($hargasebelumnya != $detailItem->hargabeli){
+                $detailItem->hargabeli = $cekhargabarang;
+                $detailItem->save();
+            }
+            $detailorder->save();
         }
 
         return redirect('inputpo');
