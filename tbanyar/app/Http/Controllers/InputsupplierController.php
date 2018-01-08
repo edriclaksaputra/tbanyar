@@ -34,7 +34,7 @@ class inputsupplierController extends Controller
         $supplier->alamat = Input::get('alamatsupplier');
         $supplier->telp = Input::get('telpsupplier');
         $supplier->jatuhtempo = Input::get('jatuhtempo');
-        $supplier->lamapengiriman = Input::get('lamakirim');
+        $supplier->lamapengiriman = 1;
         $supplier->save();
 
         return redirect('listsupplier');

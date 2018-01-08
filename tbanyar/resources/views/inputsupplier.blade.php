@@ -45,12 +45,6 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-lg-4">
-                                                <label>Lama Pengiriman (hari) &nbsp</label>
-                                                <input class="form-group" type="text" name="lamakirim">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-lg-4">
                                                 <button type="submit" class="btn btn-success">Save</button>
                                             </div>
                                         </div>
