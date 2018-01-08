@@ -75,9 +75,9 @@
                                                     <td>{{$loop->iteration}}</td>
                                                     <input type="hidden" id="detailbarang_id{{$loop->iteration}}" name="detailbarang_id" value={{$listItem->id}}>
                                                     <td><label id="nama{{$loop->iteration}}">{{$listItem->items->nama}}</label></td>
-                                                    <td><label id="harga{{$loop->iteration}}">{{$listItem->hargabeli}}</label></td>
+                                                    <td><input type="number" name="harga" id="harga{{$loop->iteration}}" value="{{$listItem->hargabeli}}"></td>
                                                     <td class="center"><input type="number" name="banyak" id="banyak{{$loop->iteration}}" value="0"></td>
-                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama{{$loop->iteration}}').innerHTML, document.getElementById('harga{{$loop->iteration}}').innerHTML, document.getElementById('banyak{{$loop->iteration}}').value, document.getElementById('detailbarang_id{{$loop->iteration}}').value)">Add</button></td>
+                                                    <td class="center"><button type="button" class="btn btn-info fa fa-plus" onclick="addBarangBeli(document.getElementById('nama{{$loop->iteration}}').innerHTML, document.getElementById('harga{{$loop->iteration}}').value, document.getElementById('banyak{{$loop->iteration}}').value, document.getElementById('detailbarang_id{{$loop->iteration}}').value)">Add</button></td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
