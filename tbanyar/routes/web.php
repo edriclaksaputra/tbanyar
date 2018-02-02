@@ -33,6 +33,7 @@ Route::get('listbarangsupplier.detail', 'ListbarangController@show')->name('bara
 Route::post('listbarangsupplier.detail.addsupplier', 'ListbarangController@insert')->name('addsuppleirbarang');
 Route::post('listbarangsupplier.detail.addsupplier.save', 'ListbarangController@update')->name('savesuppleirbarang');
 Route::get('listsupplier', 'ListsupplierController@index')->name('listsupplier');
+Route::post('listsupplier.updatestatus', 'ListsupplierController@edit')->name('updatestatus');
 Route::get('penjualan', 'PenjualanController@index')->name('penjualan');
 Route::post('penjualan/addfaktur', 'PenjualanController@create')->name('addfaktur');
 Route::get('validasipo', 'ValidasipoController@index')->name('validasipo');

@@ -24,15 +24,32 @@
                                                 <th class="col-lg-3">Nama Supplier</th>
                                                 <th class="col-lg-3">Alamat</th>
                                                 <th class="col-lg-2">No. Telp</th>
+                                                <th class="col-lg-2">Status</th>
+                                                <th class="col-lg-2">Ubah Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach($suppliers as $supplier)
                                             <tr class="odd gradeX">
-                                                <td>{{$loop->iteration}}</td>
-                                                <td>{{$supplier->nama}}</td>
-                                                <td>{{$supplier->alamat}}</td>
-                                                <td class="center">{{$supplier->telp}}</td>
+                                                <form role="form" action="/listsupplier.updatestatus" method="post" >
+                                                    {{ csrf_field() }}
+                                                    <td>{{$loop->iteration}}</td>
+                                                    <td>{{$supplier->nama}}</td>
+                                                    <td>{{$supplier->alamat}}</td>
+                                                    <td class="center">{{$supplier->telp}}</td>
+                                                    @if($supplier->status == 1)
+                                                        <td><button type="button" class="btn btn-success" disabled> Aktif</button></td>
+                                                    @else
+                                                        <td><button type="button" class="btn btn-danger" disabled> Tidak Aktif</button></td>
+                                                    @endif
+                                                    @if(($supplier->status == 1))
+                                                        <td><button type="submit" class="btn btn-warning"> Ubah non-Aktif</button></td>
+                                                        <input type="hidden" name="idsupplier" value={{$supplier->id}}>
+                                                    @else
+                                                        <td><button type="submit" class="btn btn-info"> Ubah Aktif</button></td>
+                                                        <input type="hidden" name="idsupplier" value={{$supplier->id}}>
+                                                    @endif
+                                                </form>
                                             </tr>
                                             @endforeach
                                             <!-- <tr class="even gradeC">

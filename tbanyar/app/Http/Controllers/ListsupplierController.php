@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Suppliers;
+use Illuminate\Support\Facades\Input;
 
 class listsupplierController extends Controller
 {
@@ -61,9 +62,10 @@ class listsupplierController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $idsupplier = Input::get('idsupplier');
+        dd($idsupplier);
     }
 
     /**
