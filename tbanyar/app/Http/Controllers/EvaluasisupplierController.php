@@ -121,11 +121,6 @@ class evaluasisupplierController extends Controller
             $ketersediaan = $aspek4[1];
         }
 
-        // $harga = 0.4;
-        // $kecepatan_pengiriman = 0.3;
-        // $jatuh_tempo = 0.2;
-        // $ketersediaan = 0.1;
-
         //List semua supplier penyedia supplierDetail
         $supplierDetail = Detailitem::where('items_id',$item_id)->get();
 

@@ -10,6 +10,15 @@
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-12">
+                        @if (session('alert'))
+                            <div class="alert alert-success">
+                                <h4> {{ session('alert') }} </h4>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 List Detail Supplier

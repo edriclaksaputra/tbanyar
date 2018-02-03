@@ -65,7 +65,16 @@ class listsupplierController extends Controller
     public function edit()
     {
         $idsupplier = Input::get('idsupplier');
-        dd($idsupplier);
+        $supplier = Suppliers::find($idsupplier);
+        if($supplier->status == 0){
+            $supplier->status = 1;
+        }
+        else{
+            $supplier->status = 0;
+        }
+        $supplier->save();
+
+        return redirect('listsupplier')->with('alert', 'Supplier Status telah berhasil di Update !');
     }
 
     /**
