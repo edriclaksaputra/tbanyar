@@ -131,7 +131,8 @@ class evaluasisupplierController extends Controller
         }
         else{
             //Definisikan Variabel Pembagi
-            $pembagiharga = 99;
+            $banyakTransaksi = [];
+            $pembagiharga = 9999999999999;
             $pembagikecepatanpengiriman = 99;
             $pembagijatuhtempo = 0;
             $pembagiketersediaan = 1;
@@ -150,6 +151,7 @@ class evaluasisupplierController extends Controller
                 }
 
                 $bykTransaksiSupSatu = Order::where('suppliers_id', $supplierDetail[$i]->suppliers_id)->get();
+                $banyakTransaksi[$i] = count($bykTransaksiSupSatu);
                 if(count($bykTransaksiSupSatu) > $pembagiketersediaan){
                     $pembagiketersediaan = count($bykTransaksiSupSatu);
                 }
@@ -168,7 +170,7 @@ class evaluasisupplierController extends Controller
             }
 
             $listSupplier = $supplierDetail->sortByDesc('nilaiTotal');
-            return view('hasilsupplier', compact('listSupplier'));
+            return view('hasilsupplier', compact('listSupplier', 'harga', 'kecepatan_pengiriman', 'jatuh_tempo', 'ketersediaan', 'supplierDetail', 'banyakTransaksi', 'pembagiharga', 'pembagikecepatanpengiriman', 'pembagijatuhtempo', 'pembagiketersediaan'));
         }
     }
 
