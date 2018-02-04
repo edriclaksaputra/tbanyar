@@ -13,114 +13,114 @@ class DetailItemSeeder extends Seeder
     public function run()
     {
     	//Holis Jaya
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>2,
-        // 	'items_id'=>79,
-        // 	'hargabeli'=>8950,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>2,
-        // 	'items_id'=>77,
-        // 	'hargabeli'=>5450,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>2,
-        // 	'items_id'=>78,
-        // 	'hargabeli'=>7075,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>2,
-        // 	'items_id'=>80,
-        // 	'hargabeli'=>12125,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>2,
+        	'items_id'=>79,
+        	'hargabeli'=>8950,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>2,
+        	'items_id'=>77,
+        	'hargabeli'=>5450,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>2,
+        	'items_id'=>78,
+        	'hargabeli'=>7075,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>2,
+        	'items_id'=>80,
+        	'hargabeli'=>12125,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
         //Senjaya
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>11,
-        // 	'items_id'=>55,
-        // 	'hargabeli'=>50250,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>11,
-        // 	'items_id'=>52,
-        // 	'hargabeli'=>20600,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>11,
-        // 	'items_id'=>29,
-        // 	'hargabeli'=>70900,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>11,
-        // 	'items_id'=>23,
-        // 	'hargabeli'=>11550,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>11,
+        	'items_id'=>55,
+        	'hargabeli'=>50250,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>11,
+        	'items_id'=>52,
+        	'hargabeli'=>20600,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>11,
+        	'items_id'=>29,
+        	'hargabeli'=>70900,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>11,
+        	'items_id'=>23,
+        	'hargabeli'=>11550,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
-        // //PT.Catur
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>8,
-        // 	'items_id'=>19,
-        // 	'hargabeli'=>51700,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        //PT.Catur
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>8,
+        	'items_id'=>19,
+        	'hargabeli'=>51700,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
-        // //Holcim
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>7,
-        // 	'items_id'=>20,
-        // 	'hargabeli'=>51500,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        //Holcim
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>7,
+        	'items_id'=>20,
+        	'hargabeli'=>51500,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
-        // //Sinar Makmur
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>16,
-        // 	'items_id'=>1,
-        // 	'hargabeli'=>310000,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>16,
-        // 	'items_id'=>2,
-        // 	'hargabeli'=>353500,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        //Sinar Makmur
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>16,
+        	'items_id'=>1,
+        	'hargabeli'=>310000,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>16,
+        	'items_id'=>2,
+        	'hargabeli'=>353500,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
-        // //Chrysta Mentari
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>1,
-        // 	'items_id'=>26,
-        // 	'hargabeli'=>32200,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
-        // DB::table('detailitem')->insert([
-        // 	'suppliers_id'=>1,
-        // 	'items_id'=>25,
-        // 	'hargabeli'=>22650,
-        // 	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // 	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-        // ]);
+        //Chrysta Mentari
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>1,
+        	'items_id'=>26,
+        	'hargabeli'=>32200,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('detailitem')->insert([
+        	'suppliers_id'=>1,
+        	'items_id'=>25,
+        	'hargabeli'=>22650,
+        	'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	'updated_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
     	//Sheet 4
     	//Sarana Bangun
