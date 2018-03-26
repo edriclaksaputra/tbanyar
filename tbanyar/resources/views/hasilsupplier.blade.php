@@ -60,7 +60,7 @@
                                     </table>
                                 </div>
                                 <!-- /.table-responsive -->
-                                @if(count($listSupplier) == 1)
+                                @if(count($listSupplier) == 0)
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <hr>
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                @else
+                                @elseif(count($listSupplier) > 1)
                                 <div class="row">
                                     <div class="col-lg-5">
                                         <hr>
@@ -119,12 +119,65 @@
                                         </table>
                                     </div>
                                 </div>
-                                @endif
                             </div>
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
                     </div>
+                    <div class="col-lg-5">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                Hasil Perhitungan
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-lg-2">Kriteria</th>
+                                                @foreach($listSupplier as $supplier)
+                                                <th class="col-lg-3">{{$supplier->suppliers->nama}}</th>
+                                                @endforeach
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><label>Harga</label></td>
+                                                @foreach($supplierDetail as $detailNilai)
+                                                <td>{{$detailNilai->nilaiHargaSupplier}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><label>Kecepatan Pengiriman</label></td>
+                                                @foreach($listSupplier as $detailNilai)
+                                                <td>{{$detailNilai->nilaiKecepatanSupplier}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><label>Jatuh Tempo</label></td>
+                                                @foreach($listSupplier as $detailNilai)
+                                                <td>{{$detailNilai->nilaiJatuhtempoSupplier}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><label>Ketersediaan Produk</label></td>
+                                                @foreach($listSupplier as $detailNilai)
+                                                <td>{{$detailNilai->nilaiKetersediaan}}</td>
+                                                @endforeach
+                                            </tr>
+                                            <tr>
+                                                <td><label style="color: blue">Nilai Total</label></td>
+                                                @foreach($listSupplier as $detailNilai)
+                                                <td style="color: blue">{{$detailNilai->nilaiTotal}}</td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 <!-- /.row -->
             </div>

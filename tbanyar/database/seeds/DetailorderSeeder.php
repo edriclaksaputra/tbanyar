@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+
 class DetailorderSeeder extends Seeder
 {
     /**
