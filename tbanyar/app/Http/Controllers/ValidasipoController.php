@@ -90,6 +90,9 @@ class validasipoController extends Controller
         $supplier = Suppliers::find($order->suppliers_id);
         $tanggal = Carbon::parse($order->tanggal);
         $supplier->lamapengiriman = $order->tanggaldatang->diffInDays($tanggal);
+        if($supplier->lamapengiriman == 0){
+            $supplier->lamapengiriman = 1;
+        }
         $supplier->save();
         //
 

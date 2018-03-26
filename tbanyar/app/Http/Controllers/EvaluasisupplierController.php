@@ -159,12 +159,7 @@ class evaluasisupplierController extends Controller
             //Perhitungan nilai-nilai Suppliers
             for ($i=0; $i < count($supplierDetail); $i++) {
                 $supplierDetail[$i]->nilaiHargaSupplier = $pembagiharga/$supplierDetail[$i]->hargabeli;
-                if($supplierDetail[$i]->suppliers->lamapengiriman == 0){
-                    $supplierDetail[$i]->nilaiKecepatanSupplier = $pembagikecepatanpengiriman/1;
-                }
-                else{
-                    $supplierDetail[$i]->nilaiKecepatanSupplier = $pembagikecepatanpengiriman/$supplierDetail[$i]->suppliers->lamapengiriman;
-                }
+                $supplierDetail[$i]->nilaiKecepatanSupplier = $pembagikecepatanpengiriman/$supplierDetail[$i]->suppliers->lamapengiriman;
                 $supplierDetail[$i]->nilaiJatuhtempoSupplier = $supplierDetail[$i]->suppliers->jatuhtempo/$pembagijatuhtempo;
 
                 $bykTransaksi = Order::where('suppliers_id',$supplierDetail[$i]->suppliers_id)->get();
