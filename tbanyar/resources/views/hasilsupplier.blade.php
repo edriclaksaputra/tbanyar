@@ -102,10 +102,10 @@
                                                 @foreach($listSupplier as $supplier)
                                                 <tr>
                                                     <td><label>{{$supplier->suppliers->nama}}</label></td>
-                                                    <td>{{$supplierDetail[$loop->iteration-1]->hargabeli}}</td>
-                                                    <td>{{$supplierDetail[$loop->iteration-1]->suppliers->lamapengiriman}}</td>
-                                                    <td>{{$supplierDetail[$loop->iteration-1]->suppliers->jatuhtempo}}</td>
-                                                    <td>{{$banyakTransaksi[$loop->iteration-1]}}</td>
+                                                    <td>{{$supplier->hargabeli}}</td>
+                                                    <td>{{$supplier->suppliers->lamapengiriman}}</td>
+                                                    <td>{{$supplier->suppliers->jatuhtempo}}</td>
+                                                    <td>{{$supplier->banyakTransaksi}}</td>
                                                 </tr>
                                                 @endforeach
                                                 <tr style="color: green">
@@ -143,7 +143,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><label>Harga</label></td>
-                                                @foreach($supplierDetail as $detailNilai)
+                                                @foreach($listSupplier as $detailNilai)
                                                 <td>{{$detailNilai->nilaiHargaSupplier}}</td>
                                                 @endforeach
                                             </tr>

@@ -167,8 +167,8 @@ class evaluasisupplierController extends Controller
 
                 //Hitung Nilai Total nya
                 $supplierDetail[$i]->nilaiTotal = ($supplierDetail[$i]->nilaiHargaSupplier*$harga)+($supplierDetail[$i]->nilaiKecepatanSupplier*$kecepatan_pengiriman)+($supplierDetail[$i]->nilaiJatuhtempoSupplier*$jatuh_tempo)+($supplierDetail[$i]->nilaiKetersediaan*$ketersediaan);
+                $supplierDetail[$i]->banyakTransaksi = $banyakTransaksi[$i];
             }
-
             $listSupplier = $supplierDetail->sortByDesc('nilaiTotal');
             return view('hasilsupplier', compact('listSupplier', 'harga', 'kecepatan_pengiriman', 'jatuh_tempo', 'ketersediaan', 'supplierDetail', 'banyakTransaksi', 'pembagiharga', 'pembagikecepatanpengiriman', 'pembagijatuhtempo', 'pembagiketersediaan'));
         }
