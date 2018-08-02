@@ -9,6 +9,7 @@ Aplikasi menggunakan relational database dan framework PHP Laravel 5.4.
 
 
 =======================================================================
+# Run Application
 1. Git Clone
 2. cd tbanyar
 3. Composer install & Composer Update
